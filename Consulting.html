@@ -2,23 +2,21 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Basic Consulting Training – Carolina Ayumi</title>
+
   <style>
     :root {
-      --primary: #0D3B66;
-      --accent: #F4D35E;
-      --highlight: #DCEEFB;
-      --light-bg: #F7FAFC;
-      --text-dark: #1A202C;
-      --font: 'Inter', 'Segoe UI', sans-serif;
+      --primary: #1B3B6F;
+      --light-bg: #E6F2FA;
+      --accent: #cce0f4;
+      --hover: #acc8e6;
+      --font: 'Segoe UI', 'Helvetica Neue', sans-serif;
 
       --text-base: 1rem;
-      --text-lg: 1.2rem;
-      --h1: 2rem;
       --h2: 1.5rem;
-      --h3: 1.25rem;
-      --line-height: 1.7;
+      --h1: 1.875rem;
+      --line-height: 1.65;
     }
 
     * {
@@ -30,11 +28,12 @@
     body {
       font-family: var(--font);
       background-color: var(--light-bg);
-      color: var(--text-dark);
+      color: #333;
       font-size: var(--text-base);
       line-height: var(--line-height);
     }
 
+    /* HEADER */
     header {
       background: white;
       padding: 1.25rem 2rem;
@@ -48,32 +47,35 @@
     }
 
     header h1 {
+      /* Gleiche Definition wie bei der Datenschutzerklärung */
       font-size: var(--h1);
       color: var(--primary);
-      font-weight: 700;
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 0.5rem;
     }
 
     .language-switch button {
-      margin-left: 10px;
       padding: 8px 14px;
       border: none;
-      border-radius: 20px;
-      background-color: white;
+      border-radius: 6px;
+      background-color: var(--accent);
       color: var(--primary);
-      border: 2px solid var(--primary);
-      font-size: var(--text-base);
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: background-color 0.3s;
     }
 
-    .language-switch button:hover,
-    .language-switch button.active {
-      background-color: var(--primary);
-      color: white;
+    .language-switch button:hover {
+      background-color: var(--hover);
     }
 
+    /* LAYOUT */
     .layout {
       display: grid;
+      /* Gleiche Breite der linken Spalte wie in der Datenschutz-Seite */
       grid-template-columns: 250px 1fr;
       max-width: 1200px;
       margin: 2rem auto;
@@ -81,16 +83,16 @@
       padding: 0 1rem;
     }
 
+    /* NAVIGATION */
     nav {
-      background-color: white;
+      background-color: #f8fbfe;
       padding: 2rem 1.5rem;
       border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      height: fit-content; /* Automatische Höhe */
     }
 
     nav ul {
       list-style: none;
-      padding-left: 0;
     }
 
     nav a {
@@ -99,127 +101,108 @@
       margin-bottom: 0.75rem;
       color: var(--primary);
       text-decoration: none;
-      font-size: var(--text-base);
+      font-size: 1rem;
       font-weight: 500;
       border-radius: 8px;
       transition: background-color 0.3s;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       background-color: var(--accent);
       font-weight: 600;
     }
 
-    nav a.active {
-      background-color: var(--highlight);
-      font-weight: 600;
-    }
-
+    /* MAIN-BEREICH */
     main {
       background: white;
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-      position: relative;
+      /* Anders als vorher kein position: relative; 
+         und kein Bild mit absoluter Positionierung */
     }
 
+    /* Überschriften analog zur Datenschutz-Seite */
     h1 {
       font-size: var(--h1);
       color: var(--primary);
       margin-bottom: 1.2rem;
-      font-weight: 700;
     }
 
     h2 {
       font-size: var(--h2);
       color: var(--primary);
       margin-top: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    h3 {
-      font-size: var(--h3);
-      color: var(--primary);
-      margin-top: 1.5rem;
       margin-bottom: 0.75rem;
-      font-weight: 500;
     }
 
     p {
       margin-bottom: 1.25rem;
     }
 
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    .bottom-right-image {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 260px;
-      opacity: 0.1;
-      pointer-events: none;
-    }
-
-    .hidden {
+    /* Sprache */
+    .lang-content {
       display: none;
     }
+    .lang-content.active {
+      display: block;
+    }
 
+    /* Responsive (max. 768px) */
     @media (max-width: 768px) {
       .layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Navigation wird unter/über dem Inhalt angezeigt */
       }
-
       nav {
         text-align: center;
       }
-
       nav a {
-        margin: 0.5rem auto;
         width: fit-content;
+        margin: 0.5rem auto;
       }
-
-      .bottom-right-image {
-        display: none;
-      }
-
-      header h1 {
-        font-size: 1.5rem;
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
       }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- Header -->
   <header>
     <h1>Basic Consulting Training</h1>
     <div class="language-switch">
-      <button onclick="switchLang('german')" class="active">Deutsch</button>
-      <button onclick="switchLang('english')">English</button>
-      <button onclick="switchLang('japanese')">日本語</button>
+      <button onclick="switchLang('de')">Deutsch</button>
+      <button onclick="switchLang('en')">English</button>
+      <button onclick="switchLang('jp')">日本語</button>
     </div>
   </header>
 
+  <!-- Layout -->
   <div class="layout">
+
+    <!-- Navigation -->
     <nav>
       <ul>
         <li><a href="index.html">Landing Page</a></li>
         <li><a href="seite1.html">Training: Intercultural Competence</a></li>
-        <li><a href="Consulting.html" class="active">Training: Basic Consulting</a></li>
+        <li><a href="Consulting.html" class="active">Training: Consulting Methods</a></li>
         <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
         <li><a href="Impressum.html">Impressum</a></li>
       </ul>
     </nav>
 
+    <!-- Hauptbereich -->
     <main>
-      <section id="germanText">
+      <!-- DEUTSCH -->
+      <div class="lang-content active" id="lang-de">
+        <!-- Gleiches Element: h1 -->
+        <h1>Basic Consulting Training</h1>
+
         <h2>Warum ein Basic Consulting Training?</h2>
         <p><strong>Praxisorientiert & kompakt:</strong> Lernen Sie die wichtigsten Werkzeuge aus der Unternehmensberatung kennen – vom 5-Why über PDCA bis zum Fischgrätendiagramm.</p>
         <p>Buchen Sie das Training <strong>vor Ort oder online</strong> – in Deutsch, Englisch oder Japanisch.</p>
@@ -227,7 +210,7 @@
         <h2>Was erwartet Sie?</h2>
         <p><strong>Kurz, klar, umsetzbar.</strong></p>
 
-        <h3>Nach dem Training können Sie:</h3>
+        <p><strong>Nach dem Training können Sie:</strong></p>
         <ul>
           <li>Probleme strukturiert analysieren</li>
           <li>Prozesse systematisch verbessern</li>
@@ -236,16 +219,19 @@
           <li>Teams effektiv moderieren</li>
         </ul>
 
-        <h3>Zusätzliche Vorteile:</h3>
+        <p><strong>Zusätzliche Vorteile:</strong></p>
         <ul>
           <li>Flexibles Format (online oder vor Ort)</li>
           <li>Kompakter Zeitrahmen (4–6 Std.)</li>
           <li>Mehrsprachig (DE | EN | JP)</li>
           <li>Sofort im Alltag anwendbar</li>
         </ul>
-      </section>
+      </div>
 
-      <section id="englishText" class="hidden">
+      <!-- ENGLISCH -->
+      <div class="lang-content" id="lang-en">
+        <h1>Basic Consulting Training</h1>
+
         <h2>Why Basic Consulting Training?</h2>
         <p><strong>Practical & condensed:</strong> Learn core tools like 5 Whys, PDCA and Fishbone in a short format – for direct application.</p>
         <p>Available <strong>on-site or online</strong> in German, English or Japanese.</p>
@@ -253,7 +239,7 @@
         <h2>What to Expect?</h2>
         <p><strong>Clear, short & ready to apply.</strong></p>
 
-        <h3>After the training, you will:</h3>
+        <p><strong>After the training, you will be able to:</strong></p>
         <ul>
           <li>Use structured analysis techniques</li>
           <li>Improve processes systematically</li>
@@ -262,24 +248,27 @@
           <li>Guide teams effectively</li>
         </ul>
 
-        <h3>Extra benefits:</h3>
+        <p><strong>Extra benefits:</strong></p>
         <ul>
           <li>Flexible format (online/in-person)</li>
           <li>Compact duration (4–6h)</li>
           <li>Multilingual: EN | DE | JP</li>
           <li>Practical & directly usable</li>
         </ul>
-      </section>
+      </div>
 
-      <section id="japaneseText" class="hidden">
+      <!-- JAPANISCH -->
+      <div class="lang-content" id="lang-jp">
+        <h1>ベーシック・コンサルティング・トレーニング</h1>
+
         <h2>なぜベーシック・コンサルティング・トレーニング？</h2>
-        <p><strong>実践重視・短時間:</strong> 5 Whys、PDCA、フィッシュボーンなどを学び、現場で即活用。</p>
+        <p><strong>実践重視・短時間:</strong> 5 Whys、PDCA、フィッシュボーンなどを学び、現場ですぐに活用。</p>
         <p><strong>オンラインまたは訪問形式</strong>で、日本語・英語・ドイツ語に対応。</p>
 
         <h2>研修内容</h2>
         <p><strong>短く、明確で、即実践。</strong></p>
 
-        <h3>研修で得られること：</h3>
+        <p><strong>研修で得られること：</strong></p>
         <ul>
           <li>構造的な課題分析</li>
           <li>プロセス改善の技法</li>
@@ -288,31 +277,25 @@
           <li>効果的なチーム進行</li>
         </ul>
 
-        <h3>その他の特徴：</h3>
+        <p><strong>その他の特徴：</strong></p>
         <ul>
           <li>対面・オンライン対応</li>
           <li>4〜6時間の短時間集中型</li>
-          <li>多言語対応：JP｜EN｜DE</li>
+          <li>多言語対応：JP | EN | DE</li>
           <li>現場ですぐに活かせる</li>
         </ul>
-      </section>
+      </div>
 
-      <img src="ausschnitt fujii.jpg" class="bottom-right-image" alt="Fuji" />
     </main>
   </div>
 
+  <!-- Skript zum Umschalten der Sprachen -->
   <script>
     function switchLang(lang) {
-      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-      document.getElementById(lang + 'Text').classList.remove('hidden');
-
-      document.querySelectorAll('.language-switch button').forEach(btn => btn.classList.remove('active'));
-      const btn = {
-        german: 0,
-        english: 1,
-        japanese: 2
-      }[lang];
-      document.querySelectorAll('.language-switch button')[btn].classList.add('active');
+      document.querySelectorAll('.lang-content').forEach(div => {
+        div.classList.remove('active');
+      });
+      document.getElementById('lang-' + lang).classList.add('active');
     }
   </script>
 </body>

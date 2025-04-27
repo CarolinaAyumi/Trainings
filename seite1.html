@@ -6,19 +6,16 @@
   <title>Intercultural Competence Training – Carolina Ayumi</title>
   <style>
     :root {
-      --primary: #0D3B66;
-      --accent: #F4D35E;
-      --highlight: #DCEEFB;
-      --light-bg: #F7FAFC;
-      --text-dark: #1A202C;
-      --font: 'Inter', 'Segoe UI', sans-serif;
+      --primary: #1B3B6F;
+      --light-bg: #E6F2FA;
+      --accent: #cce0f4;
+      --hover: #acc8e6;
+      --font: 'Segoe UI', 'Helvetica Neue', sans-serif;
 
-      --text-base: 0.95rem;
-      --text-lg: 1.1rem;
-      --h1: 1.6rem;
-      --h2: 1.3rem;
-      --h3: 1.1rem;
-      --line-height: 1.6;
+      --text-base: 1rem;
+      --h2: 1.5rem;
+      --h1: 1.875rem;
+      --line-height: 1.65;
     }
 
     * {
@@ -30,16 +27,17 @@
     body {
       font-family: var(--font);
       background-color: var(--light-bg);
-      color: var(--text-dark);
+      color: #333;
       font-size: var(--text-base);
       line-height: var(--line-height);
     }
 
+    /* HEADER: Überschrift und Sprachumschaltung rechts */
     header {
       background: white;
-      padding: 1.5rem 2rem;
+      padding: 1.25rem 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end; /* Titel + Language Switch rechtsbündig */
       align-items: center;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       position: sticky;
@@ -50,59 +48,64 @@
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
-      font-weight: 600;
+      margin-right: 2rem; /* Abstand zur Sprachumschaltung */
+      /* Zwei Zeilen, keine drei */
+      line-height: 1.2;
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 0.5rem;
     }
 
     .language-switch button {
-      margin-left: 8px;
       padding: 8px 14px;
       border: none;
-      border-radius: 20px;
-      background-color: white;
+      border-radius: 6px;
+      background-color: var(--accent);
       color: var(--primary);
-      border: 2px solid var(--primary);
-      font-size: var(--text-base);
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: background-color 0.3s;
     }
 
     .language-switch button:hover,
     .language-switch button.active {
-      background-color: var(--primary);
-      color: white;
+      background-color: var(--hover);
     }
 
+    /* LAYOUT: Navigation links + Hauptbereich */
     .layout {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 250px 1fr; /* 250px für Navigation */
       max-width: 1200px;
-      margin: 3rem auto;
+      margin: 2rem auto;
       gap: 2rem;
       padding: 0 1rem;
     }
 
     nav {
-      background-color: white;
+      background-color: #f8fbfe;
       padding: 2rem 1.5rem;
       border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      height: fit-content;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
     nav ul {
       list-style: none;
-      padding-left: 0;
     }
 
     nav a {
       display: block;
-      padding: 0.6rem 1rem;
-      margin-bottom: 0.6rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.75rem;
       color: var(--primary);
       text-decoration: none;
-      font-size: var(--text-base);
+      font-size: 1rem;
       font-weight: 500;
       border-radius: 8px;
-      transition: background-color 0.3s, font-weight 0.3s;
+      transition: background-color 0.3s;
     }
 
     nav a:hover {
@@ -111,35 +114,34 @@
     }
 
     nav a.active {
-      background-color: var(--highlight);
+      background-color: var(--accent);
       font-weight: 600;
     }
 
+    /* Hauptbereich (main) */
     main {
       background: white;
       border-radius: 16px;
-      padding: 2.5rem 1.5rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
       position: relative;
     }
 
     h1 {
       font-size: var(--h1);
       color: var(--primary);
-      margin-bottom: 1rem;
-      font-weight: 600;
+      margin-bottom: 1.2rem;
     }
 
     h2 {
       font-size: var(--h2);
       color: var(--primary);
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       margin-bottom: 0.75rem;
-      font-weight: 500;
     }
 
     h3 {
-      font-size: var(--h3);
+      font-size: 1.1rem;
       color: var(--primary);
       margin-top: 1.25rem;
       margin-bottom: 0.5rem;
@@ -147,8 +149,7 @@
     }
 
     p {
-      margin-bottom: 1rem;
-      font-weight: 400;
+      margin-bottom: 1.25rem;
     }
 
     ul {
@@ -158,9 +159,25 @@
 
     li {
       margin-bottom: 0.5rem;
-      font-weight: 400;
     }
 
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Bild unten rechts */
     .bottom-right-image {
       position: absolute;
       bottom: 0;
@@ -170,47 +187,58 @@
       pointer-events: none;
     }
 
-    .hidden {
+    /* Sprachsektionen */
+    .lang-content {
       display: none;
+    }
+    .lang-content.active {
+      display: block;
     }
 
     @media (max-width: 768px) {
       .layout {
         grid-template-columns: 1fr;
       }
-
       nav {
         text-align: center;
       }
-
       nav a {
         width: fit-content;
         margin: 0.5rem auto;
       }
-
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
       .bottom-right-image {
         display: none;
-      }
-
-      header h1 {
-        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER (zwei Zeilen im Titel) -->
   <header>
-    <h1>Interkulturelle Kompetenz</h1>
+    <!-- 
+         1. Zeile: Training: Intercultural
+         2. Zeile: Competence
+         Keine 3 Zeilen
+    -->
+    <h1>Training: Intercultural<br>Competence</h1>
     <div class="language-switch">
-      <button onclick="switchLang('german')" class="active">Deutsch</button>
-      <button onclick="switchLang('english')">English</button>
-      <button onclick="switchLang('japanese')">日本語</button>
+      <button onclick="switchLang('de')" class="active">Deutsch</button>
+      <button onclick="switchLang('en')">English</button>
+      <button onclick="switchLang('jp')">日本語</button>
     </div>
   </header>
 
+  <!-- LAYOUT: Navigation + Hauptinhalt -->
   <div class="layout">
     <nav>
       <ul>
+        <!-- NAVIGATION BLEIBT GLEICH! -->
         <li><a href="index.html">Landing Page</a></li>
         <li><a href="seite1.html" class="active">Training: Intercultural Competence</a></li>
         <li><a href="Consulting.html">Training: Consulting Methods</a></li>
@@ -220,7 +248,8 @@
     </nav>
 
     <main>
-      <section id="germanText">
+      <!-- Deutsch -->
+      <div class="lang-content active" id="lang-de">
         <h1>Interkulturelle Kompetenz als Schlüssel zum Erfolg</h1>
         <p><strong>In einer global vernetzten Welt</strong> ist kulturelle Intelligenz keine Option, sondern eine Voraussetzung.</p>
         <p>Schon <strong>kleine kulturelle Missverständnisse</strong> können große Auswirkungen auf Geschäftsbeziehungen haben.</p>
@@ -244,11 +273,12 @@
           <li>Meetings effektiv und respektvoll gestalten</li>
           <li>Ihre interkulturelle Kompetenz als Wettbewerbsvorteil nutzen</li>
         </ul>
-      </section>
+      </div>
 
-      <section id="englishText" class="hidden">
+      <!-- Englisch -->
+      <div class="lang-content" id="lang-en">
         <h1>Intercultural Competence as a Key to Success</h1>
-        <p><strong>In a globally connected world</strong>, cultural intelligence is not optional – it's essential.</p>
+        <p><strong>In a globally connected world</strong>, cultural intelligence is not optional – it’s essential.</p>
         <p>Even <strong>small cultural misunderstandings</strong> can have major business consequences.</p>
         <p>Understanding these subtleties builds <strong>trust, respect, and long-term collaboration</strong>.</p>
 
@@ -270,16 +300,17 @@
           <li>Run effective and respectful meetings</li>
           <li>Use intercultural competence as a competitive advantage</li>
         </ul>
-      </section>
+      </div>
 
-      <section id="japaneseText" class="hidden">
+      <!-- Japanisch -->
+      <div class="lang-content" id="lang-jp">
         <h1>異文化理解は成功のキー</h1>
         <p><strong>グローバル化が進む世界で、文化的理解は必須のスキルです。</strong></p>
         <p><strong>わずかな文化の違い</strong>が大きな問題を生むこともあります。</p>
-        <p>それらを理解し、対応することで、信頼と守られた関係を構築できます。</p>
+        <p>それらを理解し、対応することで、<strong>信頼、尊重、長期的な協力関係</strong>を築くことができます。</p>
 
         <h2>研修目的</h2>
-        <p>日本を理解し、信頼を構築し、一緒に成功を目指そう。</p>
+        <p>日本を理解し、信頼を構築し、一緒に成功を目指しましょう。</p>
 
         <h3>この研修で得られること:</h3>
         <ul>
@@ -293,27 +324,41 @@
         <ul>
           <li>日本マナーの使い方</li>
           <li>長期的な考え方の理解</li>
-          <li>有効ですすめられる会議の把握</li>
-          <li>異文化理解は競争优位のカギ</li>
+          <li>有効かつ敬意を払ったミーティングの進行</li>
+          <li>異文化理解を競争優位につなげる方法</li>
         </ul>
-      </section>
+      </div>
 
+      <!-- Bild unten rechts -->
       <img src="ausschnitt fujii.jpg" class="bottom-right-image" alt="Fuji" />
+
+      <footer>
+        <p>
+          <a href="Impressum.html">Impressum</a> |
+          <a href="Datenschutzseite.html">Datenschutz</a>
+        </p>
+      </footer>
     </main>
   </div>
 
   <script>
     function switchLang(lang) {
-      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-      document.getElementById(lang + 'Text').classList.remove('hidden');
+      // Alle Sprachabschnitte ausblenden
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      // Passenden Abschnitt einblenden
+      document.getElementById('lang-' + lang).classList.add('active');
 
-      document.querySelectorAll('.language-switch button').forEach(btn => btn.classList.remove('active'));
-      const btn = {
-        german: 0,
-        english: 1,
-        japanese: 2
-      }[lang];
-      document.querySelectorAll('.language-switch button')[btn].classList.add('active');
+      // Buttons-Status aktualisieren
+      const buttons = document.querySelectorAll(".language-switch button");
+      buttons.forEach(btn => btn.classList.remove("active"));
+
+      if (lang === "de") {
+        buttons[0].classList.add("active");
+      } else if (lang === "en") {
+        buttons[1].classList.add("active");
+      } else if (lang === "jp") {
+        buttons[2].classList.add("active");
+      }
     }
   </script>
 </body>
