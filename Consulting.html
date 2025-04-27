@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Consulting Training – Carolina Ayumi</title>
+  <style>
+    :root {
+      --primary: #0D3B66;
+      --accent: #F4D35E;
+      --highlight: #DCEEFB;
+      --light-bg: #F7FAFC;
+      --text-dark: #1A202C;
+      --font: 'Inter', 'Segoe UI', sans-serif;
+
+      --text-base: 1rem;
+      --text-lg: 1.2rem;
+      --h1: 2rem;
+      --h2: 1.5rem;
+      --h3: 1.25rem;
+      --line-height: 1.7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      font-size: var(--text-base);
+      line-height: var(--line-height);
+    }
+
+    header {
+      background: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: var(--h1);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .language-switch button {
+      margin-left: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 20px;
+      background-color: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      font-size: var(--text-base);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .language-switch button:hover,
+    .language-switch button.active {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      max-width: 1200px;
+      margin: 2rem auto;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    nav {
+      background-color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    nav a {
+      display: block;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: var(--text-base);
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: var(--accent);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background-color: var(--highlight);
+      font-weight: 600;
+    }
+
+    main {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    h1 {
+      font-size: var(--h1);
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: var(--h2);
+      color: var(--primary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: var(--h3);
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .bottom-right-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 260px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0.5rem auto;
+        width: fit-content;
+      }
+
+      .bottom-right-image {
+        display: none;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Basic Consulting Training</h1>
+    <div class="language-switch">
+      <button onclick="switchLang('german')" class="active">Deutsch</button>
+      <button onclick="switchLang('english')">English</button>
+      <button onclick="switchLang('japanese')">日本語</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav>
+      <ul>
+        <li><a href="vorstellung_landing.html">Landing Page</a></li>
+        <li><a href="seite1.html">Training: Intercultural Competence</a></li>
+        <li><a href="Consulting.html" class="active">Training: Basic Consulting</a></li>
+        <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
+        <li><a href="Impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="germanText">
+        <h2>Warum ein Basic Consulting Training?</h2>
+        <p><strong>Praxisorientiert & kompakt:</strong> Lernen Sie die wichtigsten Werkzeuge aus der Unternehmensberatung kennen – vom 5-Why über PDCA bis zum Fischgrätendiagramm.</p>
+        <p>Buchen Sie das Training <strong>vor Ort oder online</strong> – in Deutsch, Englisch oder Japanisch.</p>
+
+        <h2>Was erwartet Sie?</h2>
+        <p><strong>Kurz, klar, umsetzbar.</strong></p>
+
+        <h3>Nach dem Training können Sie:</h3>
+        <ul>
+          <li>Probleme strukturiert analysieren</li>
+          <li>Prozesse systematisch verbessern</li>
+          <li>Ursachen effizient identifizieren</li>
+          <li>Kreative Lösungen entwickeln</li>
+          <li>Teams effektiv moderieren</li>
+        </ul>
+
+        <h3>Zusätzliche Vorteile:</h3>
+        <ul>
+          <li>Flexibles Format (online oder vor Ort)</li>
+          <li>Kompakter Zeitrahmen (4–6 Std.)</li>
+          <li>Mehrsprachig (DE | EN | JP)</li>
+          <li>Sofort im Alltag anwendbar</li>
+        </ul>
+      </section>
+
+      <section id="englishText" class="hidden">
+        <h2>Why Basic Consulting Training?</h2>
+        <p><strong>Practical & condensed:</strong> Learn core tools like 5 Whys, PDCA and Fishbone in a short format – for direct application.</p>
+        <p>Available <strong>on-site or online</strong> in German, English or Japanese.</p>
+
+        <h2>What to Expect?</h2>
+        <p><strong>Clear, short & ready to apply.</strong></p>
+
+        <h3>After the training, you will:</h3>
+        <ul>
+          <li>Use structured analysis techniques</li>
+          <li>Improve processes systematically</li>
+          <li>Identify root causes quickly</li>
+          <li>Facilitate creative thinking</li>
+          <li>Guide teams effectively</li>
+        </ul>
+
+        <h3>Extra benefits:</h3>
+        <ul>
+          <li>Flexible format (online/in-person)</li>
+          <li>Compact duration (4–6h)</li>
+          <li>Multilingual: EN | DE | JP</li>
+          <li>Practical & directly usable</li>
+        </ul>
+      </section>
+
+      <section id="japaneseText" class="hidden">
+        <h2>なぜベーシック・コンサルティング・トレーニング？</h2>
+        <p><strong>実践重視・短時間:</strong> 5 Whys、PDCA、フィッシュボーンなどを学び、現場で即活用。</p>
+        <p><strong>オンラインまたは訪問形式</strong>で、日本語・英語・ドイツ語に対応。</p>
+
+        <h2>研修内容</h2>
+        <p><strong>短く、明確で、即実践。</strong></p>
+
+        <h3>研修で得られること：</h3>
+        <ul>
+          <li>構造的な課題分析</li>
+          <li>プロセス改善の技法</li>
+          <li>根本原因の特定力</li>
+          <li>創造的アイデアの発想法</li>
+          <li>効果的なチーム進行</li>
+        </ul>
+
+        <h3>その他の特徴：</h3>
+        <ul>
+          <li>対面・オンライン対応</li>
+          <li>4〜6時間の短時間集中型</li>
+          <li>多言語対応：JP｜EN｜DE</li>
+          <li>現場ですぐに活かせる</li>
+        </ul>
+      </section>
+
+      <img src="ausschnitt fujii.jpg" class="bottom-right-image" alt="Fuji" />
+    </main>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(lang + 'Text').classList.remove('hidden');
+
+      document.querySelectorAll('.language-switch button').forEach(btn => btn.classList.remove('active'));
+      const btn = {
+        german: 0,
+        english: 1,
+        japanese: 2
+      }[lang];
+      document.querySelectorAll('.language-switch button')[btn].classList.add('active');
+    }
+  </script>
+</body>
+</html>

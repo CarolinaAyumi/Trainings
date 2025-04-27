@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carolina Ayumi – Intercultural Trainings</title>
+  <style>
+    :root {
+      /* Gleiche Farb- und Font-Definition wie auf der ersten Seite */
+      --primary: #0D3B66;
+      --accent: #F4D35E;
+      --highlight: #DCEEFB;
+      --light-bg: #F7FAFC;
+      --text-dark: #1A202C;
+      --font: 'Inter', 'Segoe UI', sans-serif;
+
+      --text-base: 1rem;
+      --text-lg: 1.2rem;
+      --h1: 2rem;
+      --h2: 1.5rem;
+      --h3: 1.25rem;
+      --line-height: 1.7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      font-size: var(--text-base);
+      line-height: var(--line-height);
+    }
+
+    /* --- Header mit Titel & Sprachumschaltung --- */
+    header {
+      background: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: var(--h1);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .language-switch button {
+      margin-left: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 20px;
+      background-color: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      font-size: var(--text-base);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .language-switch button:hover,
+    .language-switch button.active {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* --- Grid-Layout für Navigation & Inhalt --- */
+    .layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      max-width: 1200px;
+      margin: 2rem auto;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    /* --- Navigation links --- */
+    nav {
+      background-color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    nav a {
+      display: block;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: var(--text-base);
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: var(--accent);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background-color: var(--highlight);
+      font-weight: 600;
+    }
+
+    /* --- Hauptbereich (main) --- */
+    main {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      position: relative;
+      /* Hier eine Mindesthöhe, damit die Seite bei wenig Text nicht "zu kurz" wirkt */
+      min-height: 70vh;
+    }
+
+    h2 {
+      font-size: var(--h2);
+      color: var(--primary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* --- Bild unten rechts --- */
+    .bottom-right-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 260px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    /* --- Kontaktlinks & Footer --- */
+    .contact-links {
+      margin-top: 2rem;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 0.5rem 1rem 0.5rem 0;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      background-color: var(--accent);
+      color: var(--primary);
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .contact-links a:hover {
+      filter: brightness(0.9);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 3rem;
+      color: var(--primary);
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      color: #0F2A57;
+    }
+
+    /* --- Responsive Design --- */
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0.5rem auto;
+        width: fit-content;
+      }
+
+      .bottom-right-image {
+        display: none;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header mit Titel und Sprachumschaltung -->
+  <header>
+    <h1>Carolina Ayumi – Intercultural Trainings</h1>
+    <div class="language-switch">
+      <button onclick="switchLang('german')" class="active">Deutsch</button>
+      <button onclick="switchLang('english')">English</button>
+      <button onclick="switchLang('japanese')">日本語</button>
+    </div>
+  </header>
+
+  <!-- Grid-Layout: Navigation links + Hauptinhalt -->
+  <div class="layout">
+    <nav>
+      <ul>
+        <li><a href="vorstellung_landing.html" class="active">Landing Page</a></li>
+        <li><a href="seite1.html">Training: Intercultural Competence</a></li>
+        <li><a href="Consulting.html">Training: Basic Consulting</a></li>
+        <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
+        <li><a href="Impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Deutsch -->
+      <section id="germanText">
+        <h2>Über mich</h2>
+        <p>Konnichiwa, mein Name ist Carolina Ayumi 亜由美.</p>
+        <p>Ich bin spezialisiert auf interkulturelle Kompetenz und Beratung, mit einem Fokus auf Lean-Six-Sigma-Methoden.</p>
+        <p>Durch meine deutsch-japanische Herkunft bringe ich wertvolle Einblicke in kulturelle Feinheiten mit, die oft zu Missverständnissen führen können.</p>
+        <p>Um diesen vorzubeugen, biete ich gezielte Schulungen zur japanischen Business-Etikette und Methodenkompetenz an.</p>
+        <p>Meine Trainings sind flexibel, interaktiv und praxisnah gestaltet.</p>
+        <p>Kontaktieren Sie mich gerne unter <strong>XXX</strong>.</p>
+      </section>
+
+      <!-- Englisch -->
+      <section id="englishText" class="hidden">
+        <h2>About Me</h2>
+        <p>Hello, my name is Carolina Ayumi 亜由美.</p>
+        <p>I specialize in intercultural competence and consulting, with a focus on Lean Six Sigma.</p>
+        <p>Growing up in both German and Japanese cultures allows me to bridge gaps in international business.</p>
+        <p>I provide training tailored to expats and teams working with Japan, supported by my Lean Six Sigma Black Belt certification.</p>
+        <p>Feel free to reach out at <strong>XXX</strong>.</p>
+      </section>
+
+      <!-- Japanisch -->
+      <section id="japaneseText" class="hidden">
+        <h2>自己紹介</h2>
+        <p>はじめまして、カロリーナ・亜由美と申します。</p>
+        <p>異文化理解やリーンシックスシグマを中心とした研修を提供しています。</p>
+        <p>日本のビジネスマナーに関する研修や、企業向けのコンサルティングを行っております。</p>
+        <p>ご興味があれば、<strong>XXX</strong>までご連絡ください。</p>
+      </section>
+
+      <!-- Kontaktlinks -->
+      <div class="contact-links">
+        <a href="mailto:carolina@hinter-den-bergen.de">E-Mail schreiben</a>
+        <a href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          <a href="Impressum.html">Impressum</a> | 
+          <a href="Datenschutzseite.html">Datenschutz</a>
+        </p>
+      </footer>
+
+      <!-- Bild unten rechts -->
+      <img src="ausschnitt fujii.jpg" class="bottom-right-image" alt="Fuji" />
+    </main>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      // Alle Sections ausblenden
+      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+      // Gewählte Sprache einblenden
+      document.getElementById(lang + 'Text').classList.remove('hidden');
+
+      // Aktive Klasse bei Buttons setzen
+      document.querySelectorAll('.language-switch button').forEach(btn => btn.classList.remove('active'));
+      const btnIndex = { german: 0, english: 1, japanese: 2 }[lang];
+      document.querySelectorAll('.language-switch button')[btnIndex].classList.add('active');
+    }
+
+    // Optional: aktuellen Seitenlink im Menü hervorheben
+    const current = window.location.href;
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.href === current) link.classList.add("active");
+    });
+  </script>
+</body>
+</html>

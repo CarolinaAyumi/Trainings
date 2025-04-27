@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – Carolina Ayumi</title>
+  <style>
+    :root {
+      --primary: #1B3B6F;
+      --light-bg: #E6F2FA;
+      --accent: #cce0f4;
+      --hover: #acc8e6;
+      --font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+
+      --text-base: 1rem;
+      --h2: 1.5rem;
+      --h1: 1.875rem;
+      --line-height: 1.65;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--light-bg);
+      color: #333;
+      font-size: var(--text-base);
+      line-height: var(--line-height);
+    }
+
+    header {
+      background: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: var(--h1);
+      color: var(--primary);
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .language-switch button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--accent);
+      color: var(--primary);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .language-switch button:hover {
+      background-color: var(--hover);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      max-width: 1200px;
+      margin: 2rem auto;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    nav {
+      background-color: #f8fbfe;
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      height: fit-content;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav a {
+      display: block;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: var(--accent);
+      font-weight: 600;
+    }
+
+    main {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      font-size: var(--h1);
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: var(--h2);
+      color: var(--primary);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        width: fit-content;
+        margin: 0.5rem auto;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Impressum</h1>
+    <div class="language-switch">
+      <button onclick="switchLang('de')">Deutsch</button>
+      <button onclick="switchLang('en')">English</button>
+      <button onclick="switchLang('jp')">日本語</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav>
+      <ul>
+        <li><a href="vorstellung_landing.html">Landing Page</a></li>
+        <li><a href="seite1.html">Training: Intercultural Competence</a></li>
+        <li><a href="Consulting.html">Training: Consulting Methods</a></li>
+        <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Deutsch -->
+      <div class="lang-content active" id="lang-de">
+        <h1>Impressum</h1>
+        <p>Angaben gemäß § 5 TMG:</p>
+        <p>
+          [Dein Name]<br>
+          [Deine Adresse oder Postfach]<br>
+          E-Mail: <a href="mailto:deine@email.de">deine@email.de</a>
+        </p>
+        <p>Verantwortlich für den Inhalt dieser Website ist die oben genannte Person.</p>
+        <footer>Stand: April 2025</footer>
+      </div>
+
+      <!-- English -->
+      <div class="lang-content" id="lang-en">
+        <h1>Legal Notice</h1>
+        <p>This website is operated by:</p>
+        <p>
+          [Your Name]<br>
+          [Your address or P.O. Box]<br>
+          Email: <a href="mailto:your@email.com">your@email.com</a>
+        </p>
+        <p>The person named above is responsible for the content of this website in accordance with applicable law.</p>
+        <footer>Last updated: April 2025</footer>
+      </div>
+
+      <!-- Japanisch -->
+      <div class="lang-content" id="lang-jp">
+        <h1>特定商取引法に基づく表記</h1>
+        <p>運営者：</p>
+        <p>
+          [あなたの氏名]<br>
+          [住所または私書箱]<br>
+          メール: <a href="mailto:あなたのメールアドレス">あなたのメールアドレス</a>
+        </p>
+        <p>当サイトの内容についての責任は、上記の運営者が負います。</p>
+        <footer>更新日：2025年4月</footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
