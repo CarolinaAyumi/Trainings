@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carolina Ayumi – Intercultural Trainings</title>
   <style>
     :root {
@@ -13,9 +13,11 @@
       --text-dark: #1A202C;
       --font: 'Inter', 'Segoe UI', sans-serif;
       --text-base: 1rem;
+      --text-lg: 1.2rem;
       --h1: 2rem;
       --h2: 1.5rem;
       --line-height: 1.7;
+      --max-content-width: 600px; /* max Textbreite */
     }
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
@@ -26,7 +28,7 @@
       line-height: var(--line-height);
     }
 
-    /* HEADER */
+    /* Header */
     header {
       background: white;
       padding: 1.25rem 2rem;
@@ -40,9 +42,6 @@
       font-size: var(--h1);
       color: var(--primary);
       font-weight:700;
-    }
-    .language-switch {
-      display: flex;
     }
     .language-switch button {
       margin-left:10px;
@@ -62,9 +61,9 @@
       color:white;
     }
 
-    /* GRID LAYOUT */
+    /* Grid-Layout Desktop */
     .layout {
-      display:grid;
+      display: grid;
       grid-template-columns: 250px 1fr;
       max-width:1200px;
       margin:2rem auto;
@@ -72,7 +71,7 @@
       padding:0 1rem;
     }
 
-    /* NAVIGATION */
+    /* Navigation */
     nav {
       background:white;
       padding:2rem 1.5rem;
@@ -94,7 +93,7 @@
     nav a:hover { background:var(--accent); font-weight:600; }
     nav a.active { background:var(--highlight); font-weight:600; }
 
-    /* MAIN */
+    /* Main Content */
     main {
       background:white;
       border-radius:16px;
@@ -102,18 +101,19 @@
       box-shadow:0 8px 24px rgba(0,0,0,0.05);
       position:relative;
       min-height:70vh;
+      max-width: var(--max-content-width);
+      margin: 0 auto; /* zentriert den Text-Block */
     }
     h2 {
-      font-size:var(--h2);
-      color:var(--primary);
+      font-size: var(--h2);
+      color: var(--primary);
       margin:2rem 0 1rem;
       font-weight:600;
     }
     p { margin-bottom:1.25rem; }
-
     .hidden { display:none; }
 
-    /* KONTAKT & FOOTER */
+    /* Kontaktlinks & Footer */
     .contact-links {
       margin-top:2rem;
     }
@@ -121,10 +121,10 @@
       display:inline-block;
       margin:.5rem 1rem .5rem 0;
       padding:.6rem 1rem;
-      text-decoration:none;
       background:var(--accent);
       color:var(--primary);
       border-radius:6px;
+      text-decoration:none;
       transition:0.3s;
     }
     .contact-links a:hover { filter:brightness(0.9); }
@@ -141,7 +141,7 @@
     }
     footer a:hover { color:#0F2A57; }
 
-    /* FUJI-BILD */
+    /* Fuji-Bild */
     .bottom-right-image {
       position:absolute;
       bottom:0; right:0;
@@ -150,17 +150,32 @@
       pointer-events:none;
     }
 
-    /* RESPONSIVE */
+    /* Responsive */
     @media (max-width:768px) {
-      .layout { grid-template-columns:1fr; }
+      /* Navigation oben */
+      .layout { display:block; padding:0 1rem; }
       nav {
+        margin-bottom:1.5rem;
         text-align:center;
       }
       nav a {
-        margin: .5rem auto;
+        margin:.5rem auto;
         width: fit-content;
       }
-      .bottom-right-image { display:none; }
+      /* Content full width */
+      main {
+        max-width: 100%;
+        margin: 0;
+        padding:1.5rem;
+      }
+      /* Fuji-Bild */
+      .bottom-right-image {
+        bottom:1rem;
+        right:1rem;
+        width:200px;
+      }
+      /* Header */
+      header { flex-direction:column; align-items:flex-start; gap:1rem; }
       header h1 { font-size:1.5rem; }
     }
   </style>
@@ -192,27 +207,30 @@
       <section id="germanText">
         <h2>Über mich</h2>
         <p>Konnichiwa, mein Name ist Carolina Ayumi 亜由美.</p>
-        <p>Ich bin spezialisiert auf interkulturelle Kompetenz und Beratung, mit Fokus Lean-Six-Sigma.</p>
-        <p>Meine deutsch-japanische Herkunft liefert wertvolle kulturelle Einblicke.</p>
-        <p>Kontakt: <strong>XXX</strong></p>
+        <p>Ich bin spezialisiert auf interkulturelle Kompetenz und Beratung, mit einem Fokus auf Lean-Six-Sigma-Methoden.</p>
+        <p>Durch meine deutsch-japanische Herkunft bringe ich wertvolle Einblicke in kulturelle Feinheiten mit, die oft zu Missverständnissen führen können.</p>
+        <p>Um diesen vorzubeugen, biete ich gezielte Schulungen zur japanischen Business-Etikette und Methodenkompetenz an.</p>
+        <p>Meine Trainings sind flexibel, interaktiv und praxisnah gestaltet.</p>
+        <p>Kontaktieren Sie mich gerne unter <strong>XXX</strong>.</p>
       </section>
 
       <!-- English -->
       <section id="englishText" class="hidden">
         <h2>About Me</h2>
         <p>Hello, my name is Carolina Ayumi 亜由美.</p>
-        <p>I specialize in intercultural competence and consulting, focusing on Lean Six Sigma.</p>
-        <p>My German–Japanese background provides unique insights.</p>
-        <p>Contact: <strong>XXX</strong></p>
+        <p>I specialize in intercultural competence and consulting, with a focus on Lean Six Sigma.</p>
+        <p>Growing up in both German and Japanese cultures allows me to bridge gaps in international business.</p>
+        <p>I provide training tailored to expats and teams working with Japan, supported by my Lean Six Sigma Black Belt certification.</p>
+        <p>Feel free to reach out at <strong>XXX</strong>.</p>
       </section>
 
-      <!-- Japanese -->
+      <!-- 日本語 -->
       <section id="japaneseText" class="hidden">
         <h2>自己紹介</h2>
-        <p>はじめまして、カロリーナ・亜由美です。</p>
-        <p>異文化理解とリーンシックスシグマを専門としています。</p>
-        <p>ドイツ・日本のバックグラウンドが洞察を提供します。</p>
-        <p>連絡先：<strong>XXX</strong></p>
+        <p>はじめまして、カロリーナ・亜由美と申します。</p>
+        <p>異文化理解やリーンシックスシグマを中心とした研修を提供しています。</p>
+        <p>日本のビジネスマナーに関する研修や、企業向けのコンサルティングを行っております。</p>
+        <p>ご興味があれば、<strong>XXX</strong>までご連絡ください。</p>
       </section>
 
       <div class="contact-links">
@@ -233,17 +251,17 @@
 
   <script>
     function switchLang(lang) {
-      document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
-      document.getElementById(lang+'Text').classList.remove('hidden');
-      document.querySelectorAll('.language-switch button').forEach(b=>b.classList.remove('active'));
-      document.querySelectorAll('.language-switch button')[{german:0,english:1,japanese:2}[lang]].classList.add('active');
+      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(lang + 'Text').classList.remove('hidden');
+      document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
+      const idx = { german:0, english:1, japanese:2 }[lang];
+      document.querySelectorAll('.language-switch button')[idx].classList.add('active');
       localStorage.setItem('preferredLang', lang);
     }
-    // Hervorheben
-    document.querySelectorAll('nav a').forEach(a=>{ if(a.href===location.href) a.classList.add('active'); });
-
-    // Beim Laden gespeicherte Sprache
-    document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.href === location.href) a.classList.add('active');
+    });
+    document.addEventListener('DOMContentLoaded', () => {
       const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
     });
