@@ -39,7 +39,6 @@
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
-      margin: 0;
     }
     .language-switch {
       display: flex;
@@ -61,7 +60,7 @@
       color: white;
     }
 
-    /* LAYOUT */
+    /* LAYOUT mit immer sichtbarer Nav */
     .layout {
       display: grid;
       grid-template-columns: 250px 1fr;
@@ -69,7 +68,6 @@
       margin: 2rem auto;
       gap: 2rem;
       padding: 0 1rem;
-      position: relative;
     }
 
     /* NAVIGATION – immer sichtbar */
@@ -159,28 +157,13 @@
     }
     footer a:hover { color: #0F2A57; }
 
-    /* RESPONSIVE – keine Ausblendung der Navigation */
+    /* MOBILE – Nav bleibt sichtbar */
     @media (max-width: 768px) {
       .layout {
-        grid-template-columns: 1fr; /* Nav wandert über den Inhalt, bleibt aber sichtbar */
+        grid-template-columns: 250px 1fr;
       }
       nav {
-        width: 100%;
-        margin-bottom: 2rem;
-      }
-      nav a {
-        width: fit-content;
-        margin: 0.5rem auto;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      .bottom-right-image {
-        width: 180px;
-        bottom: 0.5rem;
-        right: 0.5rem;
+        margin-right: 1rem;
       }
     }
   </style>
@@ -259,13 +242,13 @@
     };
 
     function switchLang(lang) {
-      // Inhalt
+      // Inhalt umschalten
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('lang-' + lang).classList.add('active');
-      // Buttons
+      // Button-Status
       document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
       document.getElementById('btn-' + lang).classList.add('active');
-      // Kontakt-Links
+      // Kontakt-Links übersetzen
       document.getElementById('emailLink').textContent    = linkLabels[lang][0];
       document.getElementById('linkedinLink').textContent = linkLabels[lang][1];
       // speichern
@@ -273,13 +256,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) gespeicherte Sprache oder 'german'
+      // bevorzugte Sprache laden
       const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
-      // 2) aktive Seite markieren
-      const url = window.location.href;
+      // aktive Seite markieren
       document.querySelectorAll('nav a').forEach(a => {
-        if (a.href === url) a.classList.add('active');
+        if (a.href === window.location.href) a.classList.add('active');
       });
     });
   </script>
