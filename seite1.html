@@ -2,243 +2,201 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Intercultural Competence Training – Carolina Ayumi</title>
   <style>
     :root {
-      --primary: #1B3B6F;
-      --light-bg: #E6F2FA;
-      --accent: #cce0f4;
-      --hover: #acc8e6;
-      --font: 'Segoe UI', 'Helvetica Neue', sans-serif;
-
+      --primary: #0D3B66;
+      --accent: #F4D35E;
+      --highlight: #DCEEFB;
+      --light-bg: #F7FAFC;
+      --text-dark: #1A202C;
+      --font: 'Inter', 'Segoe UI', sans-serif;
       --text-base: 1rem;
+      --h1: 2rem;
       --h2: 1.5rem;
-      --h1: 1.875rem;
-      --line-height: 1.65;
+      --line-height: 1.7;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: var(--font);
       background-color: var(--light-bg);
-      color: #333;
+      color: var(--text-dark);
       font-size: var(--text-base);
       line-height: var(--line-height);
     }
 
-    /* HEADER: Überschrift und Sprachumschaltung rechts */
+    /* Header mit Titel, Hamburger und Sprachauswahl */
     header {
       background: white;
-      padding: 1.25rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex;
-      justify-content: flex-end; /* Titel + Language Switch rechtsbündig */
+      justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky; top: 0; z-index: 10;
     }
-
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
-      margin-right: 2rem; /* Abstand zur Sprachumschaltung */
-      /* Zwei Zeilen, keine drei */
       line-height: 1.2;
     }
-
+    .menu-icon {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
     .language-switch {
       display: flex;
       gap: 0.5rem;
     }
-
     .language-switch button {
       padding: 8px 14px;
       border: none;
-      border-radius: 6px;
-      background-color: var(--accent);
+      border-radius: 20px;
+      background: white;
       color: var(--primary);
-      font-size: 0.9rem;
+      border: 2px solid var(--primary);
+      font-size: var(--text-base);
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: 0.3s;
+    }
+    .language-switch button.active,
+    .language-switch button:hover {
+      background: var(--primary);
+      color: white;
     }
 
-    .language-switch button:hover,
-    .language-switch button.active {
-      background-color: var(--hover);
-    }
-
-    /* LAYOUT: Navigation links + Hauptbereich */
+    /* Layout mit Navigation + Inhalt */
     .layout {
       display: grid;
-      grid-template-columns: 250px 1fr; /* 250px für Navigation */
+      grid-template-columns: 250px 1fr;
       max-width: 1200px;
       margin: 2rem auto;
       gap: 2rem;
       padding: 0 1rem;
+      position: relative;
     }
 
+    /* Navigation */
     nav {
-      background-color: #f8fbfe;
+      background: white;
       padding: 2rem 1.5rem;
       border-radius: 16px;
-      height: fit-content;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease-in-out;
     }
-
-    nav ul {
-      list-style: none;
-    }
-
+    nav ul { list-style: none; }
     nav a {
       display: block;
       padding: 0.75rem 1rem;
       margin-bottom: 0.75rem;
       color: var(--primary);
       text-decoration: none;
-      font-size: 1rem;
+      font-size: var(--text-base);
       font-weight: 500;
       border-radius: 8px;
-      transition: background-color 0.3s;
+      transition: 0.3s;
     }
-
+    nav a.active,
     nav a:hover {
-      background-color: var(--accent);
+      background: var(--highlight);
       font-weight: 600;
     }
 
-    nav a.active {
-      background-color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* Hauptbereich (main) */
+    /* Hauptbereich */
     main {
       background: white;
       border-radius: 16px;
       padding: 2rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
       position: relative;
     }
-
-    h1 {
+    main h1 {
       font-size: var(--h1);
       color: var(--primary);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
-
-    h2 {
+    main h2 {
       font-size: var(--h2);
       color: var(--primary);
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
+      margin: 1.5rem 0 0.75rem;
     }
-
-    h3 {
+    main h3 {
       font-size: 1.1rem;
       color: var(--primary);
-      margin-top: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin: 1rem 0 0.5rem;
       font-weight: 500;
     }
+    main p, main ul { margin-bottom: 1.25rem; }
+    main ul { margin-left: 1.5rem; }
 
-    p {
-      margin-bottom: 1.25rem;
-    }
+    /* Sprachabschnitte */
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
 
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
+    /* Fuji-Bild unten rechts */
+    .bottom-right-image {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 200px;
+      max-width: 30vw;
+      opacity: 0.1;
+      pointer-events: none;
     }
 
     footer {
       margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #888;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--primary);
     }
-
     footer a {
       color: var(--primary);
       text-decoration: none;
       margin: 0 0.5rem;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
 
-    /* Bild unten rechts */
-    .bottom-right-image {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 260px;
-      opacity: 0.1;
-      pointer-events: none;
-    }
-
-    /* Sprachsektionen */
-    .lang-content {
-      display: none;
-    }
-    .lang-content.active {
-      display: block;
-    }
-
+    /* Responsive */
     @media (max-width: 768px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
+      header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .menu-icon { display: block; }
+      .layout { grid-template-columns: 1fr; }
       nav {
-        text-align: center;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        transform: translateY(-200%);
+        border-radius: 0;
       }
-      nav a {
-        width: fit-content;
-        margin: 0.5rem auto;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      .bottom-right-image {
-        display: none;
-      }
+      nav.open { transform: translateY(0); }
+      nav a { width: fit-content; margin: 0.5rem auto; }
+      .bottom-right-image { display: none; }
     }
   </style>
 </head>
-<body>
 
-  <!-- HEADER (zwei Zeilen im Titel) -->
+<body>
   <header>
-    <!-- 
-         1. Zeile: Training: Intercultural
-         2. Zeile: Competence
-         Keine 3 Zeilen
-    -->
     <h1>Training: Intercultural<br>Competence</h1>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     <div class="language-switch">
-      <button onclick="switchLang('de')" class="active">Deutsch</button>
-      <button onclick="switchLang('en')">English</button>
-      <button onclick="switchLang('jp')">日本語</button>
+      <button id="btn-de" onclick="switchLang('de')">Deutsch</button>
+      <button id="btn-en" onclick="switchLang('en')">English</button>
+      <button id="btn-jp" onclick="switchLang('jp')">日本語</button>
     </div>
   </header>
 
-  <!-- LAYOUT: Navigation + Hauptinhalt -->
   <div class="layout">
-    <nav>
+    <nav id="mainNav">
       <ul>
-        <!-- NAVIGATION BLEIBT GLEICH! -->
         <li><a href="index.html">Landing Page</a></li>
         <li><a href="seite1.html" class="active">Training: Intercultural Competence</a></li>
         <li><a href="Consulting.html">Training: Consulting Methods</a></li>
@@ -254,10 +212,8 @@
         <p><strong>In einer global vernetzten Welt</strong> ist kulturelle Intelligenz keine Option, sondern eine Voraussetzung.</p>
         <p>Schon <strong>kleine kulturelle Missverständnisse</strong> können große Auswirkungen auf Geschäftsbeziehungen haben.</p>
         <p>Wer kulturelle Feinheiten erkennt und darauf reagiert, schafft <strong>Vertrauen, Respekt und nachhaltige Zusammenarbeit</strong>.</p>
-
         <h2>Trainingsziele</h2>
         <p>Verstehen Sie Japan. Bauen Sie Vertrauen auf. Arbeiten Sie erfolgreich zusammen.</p>
-
         <h3>Nach dem Training sind Sie in der Lage:</h3>
         <ul>
           <li>Japanische Werte und Verhaltensweisen einzuordnen</li>
@@ -265,7 +221,6 @@
           <li>Starke, langfristige Beziehungen aufzubauen</li>
           <li>Missverständnisse proaktiv zu vermeiden</li>
         </ul>
-
         <h3>Zusätzliche Einblicke:</h3>
         <ul>
           <li>Japanische Etikette souverän anwenden</li>
@@ -275,16 +230,14 @@
         </ul>
       </div>
 
-      <!-- Englisch -->
+      <!-- English -->
       <div class="lang-content" id="lang-en">
         <h1>Intercultural Competence as a Key to Success</h1>
         <p><strong>In a globally connected world</strong>, cultural intelligence is not optional – it’s essential.</p>
         <p>Even <strong>small cultural misunderstandings</strong> can have major business consequences.</p>
         <p>Understanding these subtleties builds <strong>trust, respect, and long-term collaboration</strong>.</p>
-
         <h2>Training Goals</h2>
         <p>Understand Japan. Build trust. Work successfully together.</p>
-
         <h3>After this training, you will be able to:</h3>
         <ul>
           <li>Understand Japanese values and behaviors</li>
@@ -292,7 +245,6 @@
           <li>Build strong, lasting relationships</li>
           <li>Prevent misunderstandings proactively</li>
         </ul>
-
         <h3>Additional insights:</h3>
         <ul>
           <li>Navigate Japanese etiquette confidently</li>
@@ -302,16 +254,14 @@
         </ul>
       </div>
 
-      <!-- Japanisch -->
+      <!-- Japanese -->
       <div class="lang-content" id="lang-jp">
         <h1>異文化理解は成功のキー</h1>
         <p><strong>グローバル化が進む世界で、文化的理解は必須のスキルです。</strong></p>
         <p><strong>わずかな文化の違い</strong>が大きな問題を生むこともあります。</p>
         <p>それらを理解し、対応することで、<strong>信頼、尊重、長期的な協力関係</strong>を築くことができます。</p>
-
         <h2>研修目的</h2>
         <p>日本を理解し、信頼を構築し、一緒に成功を目指しましょう。</p>
-
         <h3>この研修で得られること:</h3>
         <ul>
           <li>日本の価値観や行動を理解</li>
@@ -319,7 +269,6 @@
           <li>強く長期的な関係を構築</li>
           <li>行き違いを防ぐスキル</li>
         </ul>
-
         <h3>追加のインサイト:</h3>
         <ul>
           <li>日本マナーの使い方</li>
@@ -329,8 +278,8 @@
         </ul>
       </div>
 
-      <!-- Bild unten rechts -->
-      <img src="ausschnitt fujii.jpg" class="bottom-right-image" alt="Fuji" />
+      <!-- Fuji-Bild -->
+      <img src="ausschnitt fujii.jpg" class="bottom-right-image" alt="Fuji"/>
 
       <footer>
         <p>
@@ -342,24 +291,14 @@
   </div>
 
   <script>
-    function switchLang(lang) {
-      // Alle Sprachabschnitte ausblenden
-      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-      // Passenden Abschnitt einblenden
-      document.getElementById('lang-' + lang).classList.add('active');
-
-      // Buttons-Status aktualisieren
-      const buttons = document.querySelectorAll(".language-switch button");
-      buttons.forEach(btn => btn.classList.remove("active"));
-
-      if (lang === "de") {
-        buttons[0].classList.add("active");
-      } else if (lang === "en") {
-        buttons[1].classList.add("active");
-      } else if (lang === "jp") {
-        buttons[2].classList.add("active");
-      }
+    // Hamburger-Menü mobil
+    function toggleMenu() {
+      document.getElementById('mainNav').classList.toggle('open');
     }
-  </script>
-</body>
-</html>
+
+    // Sprache umschalten und speichern
+    function switchLang(lang) {
+      // Inhalte
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+      // Buttons

@@ -6,28 +6,19 @@
   <title>Carolina Ayumi – Intercultural Trainings</title>
   <style>
     :root {
-      /* Farben und Fonts */
       --primary: #0D3B66;
       --accent: #F4D35E;
       --highlight: #DCEEFB;
       --light-bg: #F7FAFC;
       --text-dark: #1A202C;
       --font: 'Inter', 'Segoe UI', sans-serif;
-
       --text-base: 1rem;
-      --text-lg: 1.2rem;
       --h1: 2rem;
       --h2: 1.5rem;
-      --h3: 1.25rem;
       --line-height: 1.7;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: var(--font);
       background-color: var(--light-bg);
@@ -36,194 +27,168 @@
       line-height: var(--line-height);
     }
 
-    /* Header mit Titel, Hamburger und Sprachwahl */
+    /* Header */
     header {
       background: white;
       padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky; top:0; z-index:10;
     }
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
-      font-weight: 700;
+      font-weight:700;
     }
     .menu-icon {
       display: none;
-      font-size: 1.5rem;
-      color: var(--primary);
-      cursor: pointer;
+      font-size:1.5rem;
+      color:var(--primary);
+      cursor:pointer;
     }
     .language-switch {
-      display: flex;
-      align-items: center;
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
     .language-switch button {
-      margin-left: 10px;
-      padding: 8px 14px;
-      border: none;
-      border-radius: 20px;
-      background-color: white;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      font-size: var(--text-base);
-      cursor: pointer;
-      transition: all 0.3s;
+      padding:8px 14px;
+      border:none; border-radius:20px;
+      background:white; color:var(--primary);
+      border:2px solid var(--primary);
+      font-size:var(--text-base);
+      cursor:pointer;
+      transition:0.3s;
     }
-    .language-switch button:hover,
-    .language-switch button.active {
-      background-color: var(--primary);
-      color: white;
+    .language-switch button.active,
+    .language-switch button:hover {
+      background:var(--primary);
+      color:white;
     }
 
-    /* Desktop-Layout */
+    /* Layout */
     .layout {
-      display: grid;
+      display:grid;
       grid-template-columns: 250px 1fr;
-      max-width: 1200px;
-      margin: 2rem auto;
-      gap: 2rem;
-      padding: 0 1rem;
-      position: relative;
-    }
-    nav {
-      background-color: white;
-      padding: 2rem 1.5rem;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease-in-out;
-    }
-    nav ul {
-      list-style: none;
-    }
-    nav a {
-      display: block;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0.75rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-size: var(--text-base);
-      font-weight: 500;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    nav a:hover {
-      background-color: var(--accent);
-      font-weight: 600;
-    }
-    nav a.active {
-      background-color: var(--highlight);
-      font-weight: 600;
+      max-width:1200px;
+      margin:2rem auto;
+      gap:2rem;
+      padding:0 1rem;
+      position:relative;
     }
 
+    /* Navigation */
+    nav {
+      background:white;
+      padding:2rem 1.5rem;
+      border-radius:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      transition:transform 0.3s ease-in-out;
+    }
+    nav ul { list-style:none; }
+    nav a {
+      display:block;
+      padding:0.75rem 1rem;
+      margin-bottom:0.75rem;
+      color:var(--primary);
+      text-decoration:none;
+      font-size:var(--text-base);
+      font-weight:500;
+      border-radius:8px;
+      transition:0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background:var(--highlight);
+      font-weight:600;
+    }
+
+    /* Main */
     main {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-      position: relative;
-      min-height: 70vh;
+      background:white;
+      border-radius:16px;
+      padding:2rem;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+      position:relative;
+      min-height:70vh;
     }
     h2 {
-      font-size: var(--h2);
-      color: var(--primary);
-      margin: 1rem 0;
-      font-weight: 600;
+      font-size:var(--h2);
+      color:var(--primary);
+      margin:1rem 0;
+      font-weight:600;
     }
-    p {
-      margin-bottom: 1.25rem;
-    }
-    .hidden {
-      display: none;
-    }
+    p { margin-bottom:1.25rem; }
 
-    /* Fuji‐Bild unten rechts */
-    .bottom-right-image {
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-      width: 150px;
-      max-width: 30vw;
-      opacity: 0.1;
-      pointer-events: none;
-      display: block;
-    }
+    /* Sprachblöcke */
+    .lang-content { display:none; }
+    .lang-content.active { display:block; }
 
+    /* Kontakt-Links */
     .contact-links {
-      margin-top: 2rem;
+      margin-top:2rem;
     }
     .contact-links a {
-      display: inline-block;
-      margin: 0.5rem 1rem 0.5rem 0;
-      padding: 0.6rem 1rem;
-      text-decoration: none;
-      background-color: var(--accent);
-      color: var(--primary);
-      border-radius: 6px;
-      transition: background-color 0.3s;
+      display:inline-block;
+      margin:0.5rem 1rem 0.5rem 0;
+      padding:0.6rem 1rem;
+      text-decoration:none;
+      background:var(--accent);
+      color:var(--primary);
+      border-radius:6px;
+      transition:0.3s;
     }
     .contact-links a:hover {
-      filter: brightness(0.9);
+      filter:brightness(0.9);
     }
 
+    /* Fuji-Bild */
+    .bottom-right-image {
+      position:absolute;
+      bottom:1rem; right:1rem;
+      width:200px; max-width:30vw;
+      opacity:0.1; pointer-events:none;
+      display:block;
+    }
+
+    /* Footer */
     footer {
-      text-align: center;
-      font-size: 0.85rem;
-      margin-top: 3rem;
-      color: var(--primary);
+      text-align:center;
+      font-size:0.85rem;
+      margin-top:3rem;
+      color:var(--primary);
     }
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-    footer a:hover {
-      color: #0F2A57;
-    }
+    footer a { color:var(--primary); text-decoration:none; margin:0 0.5rem; }
+    footer a:hover { color:#0F2A57; }
 
-    /* Mobile-Styles */
-    @media (max-width: 768px) {
-      .menu-icon {
-        display: block;
-      }
-      .layout {
-        grid-template-columns: 1fr;
-      }
+    /* Responsive */
+    @media (max-width:768px) {
+      header { flex-direction:column; align-items:flex-start; }
+      .menu-icon { display:block; }
+      .layout { grid-template-columns:1fr; }
       nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        transform: translateY(-200%);
-        border-radius: 0;
+        position:absolute; top:70px; left:0; width:100%;
+        transform:translateY(-200%); border-radius:0;
       }
-      nav.open {
-        transform: translateY(0);
-      }
+      nav.open { transform:translateY(0); }
+      nav a { width:fit-content; margin:0.5rem auto; }
       .bottom-right-image {
-        width: 120px;
-        bottom: 0.5rem;
-        right: 0.5rem;
-      }
-      header h1 {
-        font-size: 1.4rem;
+        width:180px; bottom:0.5rem; right:0.5rem;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Carolina Ayumi – Intercultural Trainings</h1>
     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     <div class="language-switch">
-      <button onclick="switchLang('german')" class="active">Deutsch</button>
-      <button onclick="switchLang('english')">English</button>
-      <button onclick="switchLang('japanese')">日本語</button>
+      <button id="btn-german" onclick="switchLang('german')">Deutsch</button>
+      <button id="btn-english" onclick="switchLang('english')">English</button>
+      <button id="btn-japanese" onclick="switchLang('japanese')">日本語</button>
     </div>
   </header>
 
@@ -240,7 +205,7 @@
 
     <main>
       <!-- Deutsch -->
-      <section id="germanText">
+      <div class="lang-content active" id="lang-german">
         <h2>Über mich</h2>
         <p>Konnichiwa, mein Name ist Carolina Ayumi 亜由美.</p>
         <p>Ich bin spezialisiert auf interkulturelle Kompetenz und Beratung, mit einem Fokus auf Lean-Six-Sigma-Methoden.</p>
@@ -248,34 +213,32 @@
         <p>Um diesen vorzubeugen, biete ich gezielte Schulungen zur japanischen Business-Etikette und Methodenkompetenz an.</p>
         <p>Meine Trainings sind flexibel, interaktiv und praxisnah gestaltet.</p>
         <p>Kontaktieren Sie mich gerne unter <strong>XXX</strong>.</p>
-      </section>
+      </div>
 
-      <!-- Englisch -->
-      <section id="englishText" class="hidden">
+      <!-- English -->
+      <div class="lang-content" id="lang-english">
         <h2>About Me</h2>
         <p>Hello, my name is Carolina Ayumi 亜由美.</p>
         <p>I specialize in intercultural competence and consulting, with a focus on Lean Six Sigma.</p>
         <p>Growing up in both German and Japanese cultures allows me to bridge gaps in international business.</p>
         <p>I provide training tailored to expats and teams working with Japan, supported by my Lean Six Sigma Black Belt certification.</p>
         <p>Feel free to reach out at <strong>XXX</strong>.</p>
-      </section>
+      </div>
 
-      <!-- Japanisch -->
-      <section id="japaneseText" class="hidden">
+      <!-- Japanese -->
+      <div class="lang-content" id="lang-japanese">
         <h2>自己紹介</h2>
         <p>はじめまして、カロリーナ・亜由美と申します。</p>
         <p>異文化理解やリーンシックスシグマを中心とした研修を提供しています。</p>
         <p>日本のビジネスマナーに関する研修や、企業向けのコンサルティングを行っております。</p>
         <p>ご興味があれば、<strong>XXX</strong>までご連絡ください。</p>
-      </section>
+      </div>
 
-      <!-- Kontaktlinks -->
       <div class="contact-links">
         <a id="emailLink" href="mailto:carolina@hinter-den-bergen.de">E-Mail schreiben</a>
         <a id="linkedinLink" href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
       </div>
 
-      <!-- Footer -->
       <footer>
         <p>
           <a href="Impressum.html">Impressum</a> |
@@ -283,50 +246,43 @@
         </p>
       </footer>
 
-      <!-- Fuji-Bild unten rechts -->
-      <!-- Variante A: lokale Datei -->
       <img src="ausschnitt fujii.jpg" class="bottom-right-image" alt="Fuji" />
-      <!-- Variante B: Data-URI, wenn du das Bild direkt einbetten willst -->
-      <!--
-      <img
-        src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD…"
-        class="bottom-right-image"
-        alt="Fuji" />
-      -->
     </main>
   </div>
 
   <script>
-    // Übersetzungen für Kontakt-Links
     const linkLabels = {
-      german: { email: 'E-Mail schreiben', linkedin: 'LinkedIn ansehen' },
-      english:{ email: 'Send e-mail',     linkedin: 'View LinkedIn'    },
-      japanese:{ email: 'メールを送信',       linkedin: 'LinkedInを見る'   }
+      german:  { email:'E-Mail schreiben', linkedin:'LinkedIn ansehen' },
+      english: { email:'Send e-mail',     linkedin:'View LinkedIn'    },
+      japanese:{ email:'メールを送信',       linkedin:'LinkedInを見る'   }
     };
 
-    // Menü auf/zu (mobil)
     function toggleMenu() {
       document.getElementById('mainNav').classList.toggle('open');
     }
 
-    // Sprache umschalten, speichern & Linktexte updaten
     function switchLang(lang) {
-      localStorage.setItem('preferredLang', lang);
-      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-      document.getElementById(lang + 'Text').classList.remove('hidden');
-      document.querySelectorAll('.language-switch button').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.language-switch button')[{ german:0,english:1,japanese:2 }[lang]].classList.add('active');
+      // Content
+      document.querySelectorAll('.lang-content').forEach(div => div.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+      // Buttons
+      document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      // Links
       document.getElementById('emailLink').textContent    = linkLabels[lang].email;
       document.getElementById('linkedinLink').textContent = linkLabels[lang].linkedin;
+      // Save
+      localStorage.setItem('preferredLang', lang);
     }
 
-    // On load: Sprache aus localStorage laden & aktive Seite markieren
     document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('preferredLang') || 'german';
-      switchLang(saved);
-      const current = window.location.href;
-      document.querySelectorAll("nav a").forEach(link => {
-        if(link.href === current) link.classList.add("active");
+      // Load saved language
+      const lang = localStorage.getItem('preferredLang') || 'german';
+      switchLang(lang);
+      // Highlight current nav link
+      const url = window.location.href;
+      document.querySelectorAll('nav a').forEach(a => {
+        if (a.href === url) a.classList.add('active');
       });
     });
   </script>
