@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Datenschutz – Carolina Ayumi</title>
+  <title>Carolina Ayumi – Intercultural Trainings</title>
   <style>
     :root {
       --primary: #0D3B66;
@@ -17,11 +15,10 @@
       --h2: 1.5rem;
       --line-height: 1.7;
     }
-
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: var(--font);
-      background-color: var(--light-bg);
+      background: var(--light-bg);
       color: var(--text-dark);
       font-size: var(--text-base);
       line-height: var(--line-height);
@@ -35,11 +32,12 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      position: sticky; top: 0; z-index: 10;
+      position: sticky; top:0; z-index:10;
     }
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
+      margin: 0;
     }
     .menu-icon {
       display: none;
@@ -53,11 +51,10 @@
     }
     .language-switch button {
       padding: 8px 14px;
-      border: none;
+      border: 2px solid var(--primary);
       border-radius: 20px;
       background: white;
       color: var(--primary);
-      border: 2px solid var(--primary);
       font-size: var(--text-base);
       cursor: pointer;
       transition: 0.3s;
@@ -79,7 +76,7 @@
       position: relative;
     }
 
-    /* NAVIGATION */
+    /* NAVIGATION (sichtbar) */
     nav {
       background: white;
       padding: 2rem 1.5rem;
@@ -94,7 +91,6 @@
       margin-bottom: 0.75rem;
       color: var(--primary);
       text-decoration: none;
-      font-size: var(--text-base);
       font-weight: 500;
       border-radius: 8px;
       transition: 0.3s;
@@ -111,31 +107,54 @@
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    }
-    main h1 {
-      font-size: var(--h1);
-      color: var(--primary);
-      margin-bottom: 1.2rem;
+      position: relative;
+      min-height: 70vh;
     }
     main h2 {
       font-size: var(--h2);
       color: var(--primary);
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
+      margin: 1rem 0;
     }
-    main p {
-      margin-bottom: 1.25rem;
-    }
+    main p { margin-bottom: 1.25rem; }
 
-    /* Sprachabschnitte */
+    /* Sprachblöcke */
     .lang-content { display: none; }
     .lang-content.active { display: block; }
 
+    /* Kontaktlinks */
+    .contact-links {
+      margin-top: 2rem;
+    }
+    .contact-links a {
+      display: inline-block;
+      margin: 0.5rem 1rem 0.5rem 0;
+      padding: 0.6rem 1rem;
+      background: var(--accent);
+      color: var(--primary);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .contact-links a:hover {
+      filter: brightness(0.9);
+    }
+
+    /* Fuji-Bild */
+    .bottom-right-image {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 200px;
+      max-width: 30vw;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
     /* FOOTER */
     footer {
-      margin-top: 3rem;
       text-align: center;
       font-size: 0.85rem;
+      margin-top: 3rem;
       color: var(--primary);
     }
     footer a {
@@ -143,13 +162,11 @@
       text-decoration: none;
       margin: 0 0.5rem;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { color: #0F2A57; }
 
-    /* RESPONSIVE */
+    /* MOBILE */
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      header { flex-direction: column; align-items: flex-start; gap:1rem; }
       .menu-icon { display: block; }
       .layout { grid-template-columns: 1fr; }
       nav {
@@ -162,28 +179,33 @@
       }
       nav.open { transform: translateY(0); }
       nav a { width: fit-content; margin: 0.5rem auto; }
+      .bottom-right-image {
+        width: 180px;
+        bottom: 0.5rem;
+        right: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Datenschutz</h1>
+    <h1>Carolina Ayumi – Intercultural Trainings</h1>
     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     <div class="language-switch">
-      <button id="btn-de" onclick="switchLang('de')">Deutsch</button>
-      <button id="btn-en" onclick="switchLang('en')">English</button>
-      <button id="btn-jp" onclick="switchLang('jp')">日本語</button>
+      <button id="btn-german" onclick="switchLang('german')">Deutsch</button>
+      <button id="btn-english" onclick="switchLang('english')">English</button>
+      <button id="btn-japanese" onclick="switchLang('japanese')">日本語</button>
     </div>
   </header>
 
   <div class="layout">
     <nav id="mainNav">
       <ul>
-        <li><a href="index.html">Landing Page</a></li>
-        <li><a href="seite1.html">Intercultural Competence</a></li>
-        <li><a href="Consulting.html">Consulting Methods</a></li>
-        <li><a href="Datenschutzseite.html" class="active">Datenschutzerklärung</a></li>
+        <li><a href="index.html" class="active">Landing Page</a></li>
+        <li><a href="seite1.html">Training: Intercultural Competence</a></li>
+        <li><a href="Consulting.html">Training: Basic Consulting</a></li>
+        <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
         <li><a href="Impressum.html">Impressum</a></li>
       </ul>
     </nav>
@@ -223,30 +245,37 @@
       </div>
     </main>
   </div>
-
   <script>
-    // Hamburger-Menü mobil
+    // Mobile-Hamburger
     function toggleMenu() {
       document.getElementById('mainNav').classList.toggle('open');
     }
 
-    // Sprache umschalten und speichern
+    // Sprachauswahl mit LocalStorage
     function switchLang(lang) {
-      // Inhalte umschalten
+      // Content
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('lang-' + lang).classList.add('active');
-      // Buttons-Status
+      // Buttons
       document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
       document.getElementById('btn-' + lang).classList.add('active');
-      // speichern
+      // Links
+      const labels = {
+        german:  ['E-Mail schreiben','LinkedIn ansehen'],
+        english: ['Send e-mail','View LinkedIn'],
+        japanese:['メールを送信','LinkedInを見る']
+      };
+      document.getElementById('emailLink').textContent    = labels[lang][0];
+      document.getElementById('linkedinLink').textContent = labels[lang][1];
+      // Save
       localStorage.setItem('preferredLang', lang);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // bevorzugte Sprache laden
-      const lang = localStorage.getItem('preferredLang') || 'de';
+      // 1) gespeicherte Sprache oder deutsch
+      const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
-      // aktuelle Seite in Nav markieren
+      // 2) aktuelle Seite markieren
       const url = window.location.href;
       document.querySelectorAll('nav a').forEach(a => {
         if (a.href === url) a.classList.add('active');
