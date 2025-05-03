@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carolina Ayumi – Intercultural Trainings</title>
+  <title>Impressum – Carolina Ayumi</title>
   <style>
     :root {
       --primary: #0D3B66;
@@ -12,7 +14,6 @@
       --font: 'Inter', 'Segoe UI', sans-serif;
       --text-base: 1rem;
       --h1: 2rem;
-      --h2: 1.5rem;
       --line-height: 1.7;
     }
     * { box-sizing: border-box; margin:0; padding:0; }
@@ -37,13 +38,6 @@
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
-      margin: 0;
-    }
-    .menu-icon {
-      display: none;
-      font-size: 1.5rem;
-      color: var(--primary);
-      cursor: pointer;
     }
     .language-switch {
       display: flex;
@@ -65,7 +59,7 @@
       color: white;
     }
 
-    /* LAYOUT */
+    /* LAYOUT mit immer sichtbarer Nav */
     .layout {
       display: grid;
       grid-template-columns: 250px 1fr;
@@ -73,16 +67,14 @@
       margin: 2rem auto;
       gap: 2rem;
       padding: 0 1rem;
-      position: relative;
     }
 
-    /* NAVIGATION (sichtbar) */
+    /* NAVIGATION – immer sichtbar */
     nav {
       background: white;
       padding: 2rem 1.5rem;
       border-radius: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease-in-out;
     }
     nav ul { list-style: none; }
     nav a {
@@ -110,45 +102,16 @@
       position: relative;
       min-height: 70vh;
     }
-    main h2 {
-      font-size: var(--h2);
+    main h1 {
+      font-size: var(--h1);
       color: var(--primary);
-      margin: 1rem 0;
+      margin-bottom: 1rem;
     }
     main p { margin-bottom: 1.25rem; }
 
     /* Sprachblöcke */
     .lang-content { display: none; }
     .lang-content.active { display: block; }
-
-    /* Kontaktlinks */
-    .contact-links {
-      margin-top: 2rem;
-    }
-    .contact-links a {
-      display: inline-block;
-      margin: 0.5rem 1rem 0.5rem 0;
-      padding: 0.6rem 1rem;
-      background: var(--accent);
-      color: var(--primary);
-      border-radius: 6px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .contact-links a:hover {
-      filter: brightness(0.9);
-    }
-
-    /* Fuji-Bild */
-    .bottom-right-image {
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-      width: 200px;
-      max-width: 30vw;
-      opacity: 0.1;
-      pointer-events: none;
-    }
 
     /* FOOTER */
     footer {
@@ -164,25 +127,22 @@
     }
     footer a:hover { color: #0F2A57; }
 
-    /* MOBILE */
+    /* MOBILE – Navigation bleibt sichtbar */
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap:1rem; }
-      .menu-icon { display: block; }
-      .layout { grid-template-columns: 1fr; }
-      nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        transform: translateY(-200%);
-        border-radius: 0;
+      .layout {
+        grid-template-columns: 250px 1fr;
       }
-      nav.open { transform: translateY(0); }
-      nav a { width: fit-content; margin: 0.5rem auto; }
-      .bottom-right-image {
-        width: 180px;
-        bottom: 0.5rem;
-        right: 0.5rem;
+      nav {
+        margin-right: 1rem;
+      }
+      nav a {
+        width: fit-content;
+        margin: 0.5rem auto;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
       }
     }
   </style>
@@ -190,8 +150,7 @@
 <body>
 
   <header>
-    <h1>Carolina Ayumi – Intercultural Trainings</h1>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <h1>Impressum</h1>
     <div class="language-switch">
       <button id="btn-german" onclick="switchLang('german')">Deutsch</button>
       <button id="btn-english" onclick="switchLang('english')">English</button>
@@ -200,92 +159,75 @@
   </header>
 
   <div class="layout">
-    <nav id="mainNav">
+    <nav>
       <ul>
-        <li><a href="index.html" class="active">Landing Page</a></li>
+        <li><a href="index.html">Landing Page</a></li>
         <li><a href="seite1.html">Training: Intercultural Competence</a></li>
         <li><a href="Consulting.html">Training: Basic Consulting</a></li>
         <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
-        <li><a href="Impressum.html">Impressum</a></li>
+        <li><a href="Impressum.html" class="active">Impressum</a></li>
       </ul>
     </nav>
 
     <main>
       <!-- Deutsch -->
-      <div class="lang-content active" id="lang-de">
+      <div class="lang-content active" id="lang-german">
         <h1>Impressum</h1>
         <p>Angaben gemäß § 5 TMG:</p>
         <p>
-          [Dein Name]<br>
-          [Deine Adresse]<br>
-          E-Mail: <a href="mailto:deine@email.de">deine@email.de</a>
+          Carolina Ayumi<br>
+          Musterstraße 1<br>
+          12345 Musterstadt<br>
+          E-Mail: <a href="mailto:carolina@hinter-den-bergen.de">carolina@hinter-den-bergen.de</a>
         </p>
-        <p>Verantwortlich für den Inhalt dieser Website ist die oben genannte Person.</p>
+        <p>Verantwortlich für den Inhalt: Carolina Ayumi</p>
         <footer>Stand: April 2025</footer>
       </div>
 
       <!-- English -->
-      <div class="lang-content" id="lang-en">
+      <div class="lang-content" id="lang-english">
         <h1>Legal Notice</h1>
-        <p>This website is operated by:</p>
+        <p>Information pursuant to Section 5 TMG:</p>
         <p>
-          [Your Name]<br>
-          [Your Address]<br>
-          Email: <a href="mailto:your@email.com">your@email.com</a>
+          Carolina Ayumi<br>
+          Sample Street 1<br>
+          12345 Sample City<br>
+          Email: <a href="mailto:carolina@hinter-den-bergen.de">carolina@hinter-den-bergen.de</a>
         </p>
-        <p>The person named above is responsible for the content of this website in accordance with applicable law.</p>
+        <p>Responsible for content: Carolina Ayumi</p>
         <footer>Last updated: April 2025</footer>
       </div>
 
-      <!-- Japanisch -->
-      <div class="lang-content" id="lang-jp">
+      <!-- 日本語 -->
+      <div class="lang-content" id="lang-japanese">
         <h1>特定商取引法に基づく表記</h1>
-        <p>運営者：</p>
+        <p>以下は電気通信事業法第５条に基づく表記です：</p>
         <p>
-          [あなたの氏名]<br>
-          [ご住所]<br>
-          メール: <a href="mailto:あなたのメールアドレス">あなたのメールアドレス</a>
+          カロリーナ・亜由美<br>
+          サンプル通り１番<br>
+          12345 サンプル市<br>
+          メール: <a href="mailto:carolina@hinter-den-bergen.de">carolina@hinter-den-bergen.de</a>
         </p>
-        <p>当サイトの内容についての責任は、上記の運営者が負います。</p>
+        <p>責任者: カロリーナ・亜由美</p>
         <footer>更新日：2025年4月</footer>
       </div>
     </main>
   </div>
 
   <script>
-    // Mobile-Hamburger
-    function toggleMenu() {
-      document.getElementById('mainNav').classList.toggle('open');
-    }
-
-    // Sprachauswahl mit LocalStorage
     function switchLang(lang) {
-      // Content
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('lang-' + lang).classList.add('active');
-      // Buttons
       document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
       document.getElementById('btn-' + lang).classList.add('active');
-      // Links
-      const labels = {
-        german:  ['E-Mail schreiben','LinkedIn ansehen'],
-        english: ['Send e-mail','View LinkedIn'],
-        japanese:['メールを送信','LinkedInを見る']
-      };
-      document.getElementById('emailLink').textContent    = labels[lang][0];
-      document.getElementById('linkedinLink').textContent = labels[lang][1];
-      // Save
       localStorage.setItem('preferredLang', lang);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) gespeicherte Sprache oder deutsch
       const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
-      // 2) aktuelle Seite markieren
-      const url = window.location.href;
       document.querySelectorAll('nav a').forEach(a => {
-        if (a.href === url) a.classList.add('active');
+        if (a.href === window.location.href) a.classList.add('active');
       });
     });
   </script>

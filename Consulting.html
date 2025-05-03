@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carolina Ayumi – Intercultural Trainings</title>
+  <title>Training: Basic Consulting – Carolina Ayumi</title>
   <style>
     :root {
       --primary: #0D3B66;
@@ -37,13 +39,6 @@
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
-      margin: 0;
-    }
-    .menu-icon {
-      display: none;
-      font-size: 1.5rem;
-      color: var(--primary);
-      cursor: pointer;
     }
     .language-switch {
       display: flex;
@@ -65,7 +60,7 @@
       color: white;
     }
 
-    /* LAYOUT */
+    /* LAYOUT mit immer sichtbarer Nav */
     .layout {
       display: grid;
       grid-template-columns: 250px 1fr;
@@ -73,16 +68,14 @@
       margin: 2rem auto;
       gap: 2rem;
       padding: 0 1rem;
-      position: relative;
     }
 
-    /* NAVIGATION (sichtbar) */
+    /* NAVIGATION – immer sichtbar */
     nav {
       background: white;
       padding: 2rem 1.5rem;
       border-radius: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease-in-out;
     }
     nav ul { list-style: none; }
     nav a {
@@ -110,12 +103,24 @@
       position: relative;
       min-height: 70vh;
     }
+    main h1 {
+      font-size: var(--h1);
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
     main h2 {
       font-size: var(--h2);
       color: var(--primary);
-      margin: 1rem 0;
+      margin: 1.5rem 0 0.75rem;
     }
-    main p { margin-bottom: 1.25rem; }
+    main p, main ul { margin-bottom: 1.25rem; }
+    main ul { margin-left: 1.5rem; }
+    main h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin: 1rem 0 0.5rem;
+      font-weight: 500;
+    }
 
     /* Sprachblöcke */
     .lang-content { display: none; }
@@ -139,17 +144,6 @@
       filter: brightness(0.9);
     }
 
-    /* Fuji-Bild */
-    .bottom-right-image {
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-      width: 200px;
-      max-width: 30vw;
-      opacity: 0.1;
-      pointer-events: none;
-    }
-
     /* FOOTER */
     footer {
       text-align: center;
@@ -164,25 +158,22 @@
     }
     footer a:hover { color: #0F2A57; }
 
-    /* MOBILE */
+    /* MOBILE – Navigation bleibt sichtbar */
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap:1rem; }
-      .menu-icon { display: block; }
-      .layout { grid-template-columns: 1fr; }
-      nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        transform: translateY(-200%);
-        border-radius: 0;
+      .layout {
+        grid-template-columns: 250px 1fr;
       }
-      nav.open { transform: translateY(0); }
-      nav a { width: fit-content; margin: 0.5rem auto; }
-      .bottom-right-image {
-        width: 180px;
-        bottom: 0.5rem;
-        right: 0.5rem;
+      nav {
+        margin-right: 1rem;
+      }
+      nav a {
+        width: fit-content;
+        margin: 0.5rem auto;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
       }
     }
   </style>
@@ -190,8 +181,7 @@
 <body>
 
   <header>
-    <h1>Carolina Ayumi – Intercultural Trainings</h1>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <h1>Basic Consulting Training</h1>
     <div class="language-switch">
       <button id="btn-german" onclick="switchLang('german')">Deutsch</button>
       <button id="btn-english" onclick="switchLang('english')">English</button>
@@ -200,128 +190,119 @@
   </header>
 
   <div class="layout">
-    <nav id="mainNav">
+    <nav>
       <ul>
-        <li><a href="index.html" class="active">Landing Page</a></li>
+        <li><a href="index.html">Landing Page</a></li>
         <li><a href="seite1.html">Training: Intercultural Competence</a></li>
-        <li><a href="Consulting.html">Training: Basic Consulting</a></li>
+        <li><a href="Consulting.html" class="active">Training: Basic Consulting</a></li>
         <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
         <li><a href="Impressum.html">Impressum</a></li>
       </ul>
     </nav>
 
-    <!-- MAIN -->
     <main>
       <!-- Deutsch -->
-      <div class="lang-content" id="lang-de">
-        <h1>Basic Consulting Training</h1>
-        <h2>Warum ein Basic Consulting Training?</h2>
-        <p><strong>Praxisorientiert & kompakt:</strong> Lernen Sie die wichtigsten Werkzeuge aus der Unternehmensberatung kennen – vom 5-Why über PDCA bis zum Fischgrätendiagramm.</p>
+      <div class="lang-content active" id="lang-german">
+        <h2>Warum Basic Consulting Training?</h2>
+        <p><strong>Praxisorientiert & kompakt:</strong> Lernen Sie Werkzeuge wie 5-Why, PDCA und Fischgrätendiagramm in kurzer Form.</p>
         <p>Buchen Sie das Training <strong>vor Ort oder online</strong> – in Deutsch, Englisch oder Japanisch.</p>
-        <h2>Was erwartet Sie?</h2>
-        <p><strong>Kurz, klar, umsetzbar.</strong></p>
-        <p><strong>Nach dem Training können Sie:</strong></p>
+        <h2>Was Sie lernen:</h2>
         <ul>
-          <li>Probleme strukturiert analysieren</li>
-          <li>Prozesse systematisch verbessern</li>
-          <li>Ursachen effizient identifizieren</li>
-          <li>Kreative Lösungen entwickeln</li>
-          <li>Teams effektiv moderieren</li>
+          <li>Strukturierte Problemanalyse</li>
+          <li>Systematische Prozessverbesserung</li>
+          <li>Ursachenidentifikation</li>
+          <li>Kreative Lösungsfindung</li>
+          <li>Effektives Moderieren von Teams</li>
         </ul>
-        <p><strong>Zusätzliche Vorteile:</strong></p>
+        <h2>Ihre Vorteile:</h2>
         <ul>
-          <li>Flexibles Format (online oder vor Ort)</li>
-          <li>Kompakter Zeitrahmen (4–6 Std.)</li>
+          <li>Flexibles Format (online/vor Ort)</li>
+          <li>Kompakte Dauer (4–6 Std.)</li>
           <li>Mehrsprachig (DE | EN | JP)</li>
-          <li>Sofort im Alltag anwendbar</li>
+          <li>Sofort anwendbar</li>
         </ul>
       </div>
 
-      <!-- Englisch -->
-      <div class="lang-content" id="lang-en">
-        <h1>Basic Consulting Training</h1>
+      <!-- English -->
+      <div class="lang-content" id="lang-english">
         <h2>Why Basic Consulting Training?</h2>
-        <p><strong>Practical & condensed:</strong> Learn core tools like 5 Whys, PDCA and Fishbone in a short format – for direct application.</p>
+        <p><strong>Practical & condensed:</strong> Learn tools like 5 Whys, PDCA, and Fishbone in a short format.</p>
         <p>Available <strong>on-site or online</strong> in German, English or Japanese.</p>
-        <h2>What to Expect?</h2>
-        <p><strong>Clear, short & ready to apply.</strong></p>
-        <p><strong>After the training, you will be able to:</strong></p>
+        <h2>What you will learn:</h2>
         <ul>
-          <li>Use structured analysis techniques</li>
-          <li>Improve processes systematically</li>
-          <li>Identify root causes quickly</li>
-          <li>Facilitate creative thinking</li>
-          <li>Guide teams effectively</li>
+          <li>Structured problem analysis</li>
+          <li>Systematic process improvement</li>
+          <li>Root cause identification</li>
+          <li>Creative solution development</li>
+          <li>Effective team facilitation</li>
         </ul>
-        <p><strong>Extra benefits:</strong></p>
+        <h2>Your benefits:</h2>
         <ul>
           <li>Flexible format (online/in-person)</li>
-          <li>Compact duration (4–6 h)</li>
-          <li>Multilingual: EN | DE | JP</li>
-          <li>Practical & directly usable</li>
+          <li>Compact duration (4–6h)</li>
+          <li>Multilingual (DE | EN | JP)</li>
+          <li>Immediately applicable</li>
         </ul>
       </div>
 
-      <!-- Japanisch -->
-      <div class="lang-content" id="lang-jp">
-        <h1>ベーシック・コンサルティング・トレーニング</h1>
+      <!-- 日本語 -->
+      <div class="lang-content" id="lang-japanese">
         <h2>なぜベーシック・コンサルティング・トレーニング？</h2>
-        <p><strong>実践重視・短時間:</strong> 5 Whys、PDCA、フィッシュボーンなどを学び、現場ですぐに活用。</p>
-        <p><strong>オンラインまたは訪問形式</strong>で、日本語・英語・ドイツ語に対応。</p>
-        <h2>研修内容</h2>
-        <p><strong>短く、明確で、即実践。</strong></p>
-        <p><strong>研修で得られること：</strong></p>
+        <p><strong>実践重視・短時間:</strong> 5 Whys、PDCA、フィッシュボーンを短時間で学べます。</p>
+        <p><strong>オンラインまたは対面</strong>で日本語・英語・ドイツ語に対応。</p>
+        <h2>学べる内容：</h2>
         <ul>
-          <li>構造的な課題分析</li>
-          <li>プロセス改善の技法</li>
-          <li>根本原因の特定力</li>
-          <li>創造的アイデアの発想法</li>
+          <li>構造的な問題分析</li>
+          <li>プロセス改善</li>
+          <li>根本原因の特定</li>
+          <li>創造的解決策の立案</li>
           <li>効果的なチーム進行</li>
         </ul>
-        <p><strong>その他の特徴：</strong></p>
+        <h2>メリット：</h2>
         <ul>
-          <li>対面・オンライン対応</li>
-          <li>4〜6時間の短時間集中型</li>
-          <li>多言語対応：JP | EN | DE</li>
-          <li>現場ですぐに活かせる</li>
+          <li>柔軟な形式（オンライン／対面）</li>
+          <li>短時間集中（4〜6時間）</li>
+          <li>多言語対応（DE｜EN｜JP）</li>
+          <li>即実践可能</li>
         </ul>
       </div>
+
+      <div class="contact-links">
+        <a id="emailLink" href="mailto:carolina@hinter-den-bergen.de">E-Mail schreiben</a>
+        <a id="linkedinLink" href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
+      </div>
+
+      <footer>
+        <p>
+          <a href="Impressum.html">Impressum</a> |
+          <a href="Datenschutzseite.html">Datenschutz</a>
+        </p>
+      </footer>
     </main>
   </div>
-  <script>
-    // Mobile-Hamburger
-    function toggleMenu() {
-      document.getElementById('mainNav').classList.toggle('open');
-    }
 
-    // Sprachauswahl mit LocalStorage
+  <script>
+    const linkLabels = {
+      german:  ['E-Mail schreiben','LinkedIn ansehen'],
+      english: ['Send e-mail','View LinkedIn'],
+      japanese:['メールを送信','LinkedInを見る']
+    };
+
     function switchLang(lang) {
-      // Content
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('lang-' + lang).classList.add('active');
-      // Buttons
       document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
       document.getElementById('btn-' + lang).classList.add('active');
-      // Links
-      const labels = {
-        german:  ['E-Mail schreiben','LinkedIn ansehen'],
-        english: ['Send e-mail','View LinkedIn'],
-        japanese:['メールを送信','LinkedInを見る']
-      };
-      document.getElementById('emailLink').textContent    = labels[lang][0];
-      document.getElementById('linkedinLink').textContent = labels[lang][1];
-      // Save
+      document.getElementById('emailLink').textContent    = linkLabels[lang][0];
+      document.getElementById('linkedinLink').textContent = linkLabels[lang][1];
       localStorage.setItem('preferredLang', lang);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) gespeicherte Sprache oder deutsch
       const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
-      // 2) aktuelle Seite markieren
-      const url = window.location.href;
       document.querySelectorAll('nav a').forEach(a => {
-        if (a.href === url) a.classList.add('active');
+        if (a.href === window.location.href) a.classList.add('active');
       });
     });
   </script>
