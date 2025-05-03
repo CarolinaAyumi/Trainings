@@ -29,7 +29,7 @@
     /* HEADER */
     header {
       background: white;
-      padding: 1rem 1.5rem;
+      padding: 1.25rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -39,142 +39,127 @@
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
+      font-weight:700;
     }
     .language-switch {
       display: flex;
-      gap: 0.5rem;
     }
     .language-switch button {
-      padding: 8px 14px;
-      border: 2px solid var(--primary);
-      border-radius: 20px;
-      background: white;
-      color: var(--primary);
-      font-size: var(--text-base);
-      cursor: pointer;
-      transition: 0.3s;
+      margin-left:10px;
+      padding:8px 14px;
+      border:none;
+      border-radius:20px;
+      background:white;
+      color:var(--primary);
+      border:2px solid var(--primary);
+      font-size:var(--text-base);
+      cursor:pointer;
+      transition:0.3s;
     }
-    .language-switch button.active,
-    .language-switch button:hover {
-      background: var(--primary);
-      color: white;
+    .language-switch button:hover,
+    .language-switch button.active {
+      background:var(--primary);
+      color:white;
     }
 
-    /* LAYOUT mit immer sichtbarer Nav */
+    /* GRID LAYOUT */
     .layout {
-      display: grid;
+      display:grid;
       grid-template-columns: 250px 1fr;
-      max-width: 1200px;
-      margin: 2rem auto;
-      gap: 2rem;
-      padding: 0 1rem;
+      max-width:1200px;
+      margin:2rem auto;
+      gap:2rem;
+      padding:0 1rem;
     }
 
-    /* NAVIGATION – immer sichtbar */
+    /* NAVIGATION */
     nav {
-      background: white;
-      padding: 2rem 1.5rem;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background:white;
+      padding:2rem 1.5rem;
+      border-radius:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
     }
-    nav ul { list-style: none; }
+    nav ul { list-style:none; padding-left:0; }
     nav a {
-      display: block;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0.75rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      border-radius: 8px;
-      transition: 0.3s;
+      display:block;
+      padding:.75rem 1rem;
+      margin-bottom:.75rem;
+      color:var(--primary);
+      text-decoration:none;
+      font-size:var(--text-base);
+      font-weight:500;
+      border-radius:8px;
+      transition:0.3s;
     }
-    nav a.active,
-    nav a:hover {
-      background: var(--highlight);
-      font-weight: 600;
-    }
+    nav a:hover { background:var(--accent); font-weight:600; }
+    nav a.active { background:var(--highlight); font-weight:600; }
 
     /* MAIN */
     main {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      position: relative;
-      min-height: 70vh;
+      background:white;
+      border-radius:16px;
+      padding:2rem;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+      position:relative;
+      min-height:70vh;
     }
-    main h1 {
-      font-size: var(--h1);
-      color: var(--primary);
-      margin-bottom: 1rem;
+    main h1, main h2, main h3, main p, main ul {
+      margin-bottom:1.25rem;
     }
-    main h2 {
-      font-size: var(--h2);
-      color: var(--primary);
-      margin: 1.5rem 0 0.75rem;
-    }
+    main h1 { font-size:var(--h1); color:var(--primary); }
+    main h2 { font-size:var(--h2); color:var(--primary); margin-top:1.5rem; }
     main h3 {
-      font-size: 1.1rem;
-      color: var(--primary);
-      margin: 1rem 0 0.5rem;
-      font-weight: 500;
+      font-size:1.1rem; color:var(--primary);
+      margin-top:1rem; margin-bottom:.5rem; font-weight:500;
     }
-    main p, main ul { margin-bottom: 1.25rem; }
-    main ul { margin-left: 1.5rem; }
+    main ul { margin-left:1.5rem; }
 
     /* Sprachblöcke */
-    .lang-content { display: none; }
-    .lang-content.active { display: block; }
+    .lang-content { display:none; }
+    .lang-content.active { display:block; }
 
-    /* Kontaktlinks */
+    /* Kontaktlinks & Footer */
     .contact-links {
-      margin-top: 2rem;
+      margin-top:2rem;
     }
     .contact-links a {
-      display: inline-block;
-      margin: 0.5rem 1rem 0.5rem 0;
-      padding: 0.6rem 1rem;
-      background: var(--accent);
-      color: var(--primary);
-      border-radius: 6px;
-      text-decoration: none;
-      transition: 0.3s;
+      display:inline-block;
+      margin:.5rem 1rem .5rem 0;
+      padding:.6rem 1rem;
+      background:var(--accent);
+      color:var(--primary);
+      border-radius:6px;
+      text-decoration:none;
+      transition:0.3s;
     }
-    .contact-links a:hover {
-      filter: brightness(0.9);
-    }
+    .contact-links a:hover { filter:brightness(0.9); }
 
-    /* FOOTER */
     footer {
-      text-align: center;
-      font-size: 0.85rem;
-      margin-top: 3rem;
-      color: var(--primary);
+      text-align:center;
+      font-size:.85rem;
+      margin-top:3rem;
+      color:var(--primary);
     }
     footer a {
-      color: var(--primary);
-      text-decoration: none;
-      margin: 0 0.5rem;
+      color:var(--primary);
+      text-decoration:none;
+      margin:0 .5rem;
     }
-    footer a:hover { color: #0F2A57; }
+    footer a:hover { color:#0F2A57; }
 
-    /* MOBILE – Navigation bleibt sichtbar */
-    @media (max-width: 768px) {
+    /* RESPONSIVE – wie auf index.html */
+    @media (max-width:768px) {
       .layout {
-        grid-template-columns: 250px 1fr;
+        grid-template-columns:1fr;
       }
       nav {
-        margin-right: 1rem;
+        text-align:center;
       }
       nav a {
+        margin:.5rem auto;
         width: fit-content;
-        margin: 0.5rem auto;
       }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
+      header h1 { font-size:1.5rem; }
     }
   </style>
 </head>
@@ -183,9 +168,9 @@
   <header>
     <h1>Training: Intercultural Competence</h1>
     <div class="language-switch">
-      <button id="btn-german" onclick="switchLang('german')">Deutsch</button>
-      <button id="btn-english" onclick="switchLang('english')">English</button>
-      <button id="btn-japanese" onclick="switchLang('japanese')">日本語</button>
+      <button onclick="switchLang('german')" class="active">Deutsch</button>
+      <button onclick="switchLang('english')">English</button>
+      <button onclick="switchLang('japanese')">日本語</button>
     </div>
   </header>
 
@@ -205,26 +190,20 @@
       <div class="lang-content active" id="lang-german">
         <h1>Interkulturelle Kompetenz als Schlüssel zum Erfolg</h1>
         <p><strong>In einer global vernetzten Welt</strong> ist kulturelle Intelligenz keine Option, sondern eine Voraussetzung.</p>
-        <p>Schon <strong>kleine kulturelle Missverständnisse</strong> können große Auswirkungen auf Geschäftsbeziehungen haben.</p>
-        <p>Wer kulturelle Feinheiten erkennt und darauf reagiert, schafft <strong>Vertrauen, Respekt und nachhaltige Zusammenarbeit</strong>.</p>
-
+        <p>Schon <strong>kleine kulturelle Missverständnisse</strong> können große Auswirkungen haben.</p>
         <h2>Trainingsziele</h2>
-        <p>Verstehen Sie Japan. Bauen Sie Vertrauen auf. Arbeiten Sie erfolgreich zusammen.</p>
-
-        <h3>Nach dem Training sind Sie in der Lage:</h3>
         <ul>
-          <li>Japanische Werte und Verhaltensweisen einzuordnen</li>
-          <li>Kulturell angemessen zu kommunizieren</li>
-          <li>Starke, langfristige Beziehungen aufzubauen</li>
-          <li>Missverständnisse proaktiv zu vermeiden</li>
+          <li>Werte und Verhaltensweisen verstehen</li>
+          <li>Kulturell angemessen kommunizieren</li>
+          <li>Langfristige Beziehungen aufbauen</li>
+          <li>Missverständnisse vermeiden</li>
         </ul>
-
-        <h3>Zusätzliche Einblicke:</h3>
+        <h2>Zusätzliche Einblicke</h2>
         <ul>
-          <li>Japanische Etikette souverän anwenden</li>
-          <li>Langfristige Denkweisen verstehen</li>
-          <li>Meetings effektiv und respektvoll gestalten</li>
-          <li>Ihre interkulturelle Kompetenz als Wettbewerbsvorteil nutzen</li>
+          <li>Japanische Etikette anwenden</li>
+          <li>Langfristiges Denken verstehen</li>
+          <li>Respektvolle Meetings gestalten</li>
+          <li>Wettbewerbsvorteil durch Kulturkompetenz</li>
         </ul>
       </div>
 
@@ -232,26 +211,20 @@
       <div class="lang-content" id="lang-english">
         <h1>Intercultural Competence as a Key to Success</h1>
         <p><strong>In a globally connected world</strong>, cultural intelligence is essential.</p>
-        <p>Even <strong>small cultural misunderstandings</strong> can have major business impact.</p>
-        <p>Recognizing and responding to these subtleties builds <strong>trust, respect, and long-term collaboration</strong>.</p>
-
+        <p>Small misunderstandings can have major impact.</p>
         <h2>Training Goals</h2>
-        <p>Understand Japan. Build trust. Work successfully together.</p>
-
-        <h3>After this training, you will be able to:</h3>
         <ul>
-          <li>Understand Japanese values and behaviors</li>
-          <li>Communicate with cultural sensitivity</li>
-          <li>Build strong, lasting relationships</li>
-          <li>Prevent misunderstandings proactively</li>
+          <li>Understand values & behaviors</li>
+          <li>Communicate with sensitivity</li>
+          <li>Build lasting relationships</li>
+          <li>Prevent misunderstandings</li>
         </ul>
-
-        <h3>Additional insights:</h3>
+        <h2>Additional Insights</h2>
         <ul>
-          <li>Navigate Japanese etiquette confidently</li>
+          <li>Apply Japanese etiquette</li>
           <li>Understand long-term thinking</li>
-          <li>Run effective and respectful meetings</li>
-          <li>Use intercultural competence as a competitive advantage</li>
+          <li>Run respectful meetings</li>
+          <li>Gain competitive edge</li>
         </ul>
       </div>
 
@@ -259,32 +232,26 @@
       <div class="lang-content" id="lang-japanese">
         <h1>異文化理解は成功のキー</h1>
         <p><strong>グローバル化が進む世界で</strong>、文化的理解は必須です。</p>
-        <p>小さな誤解でも大きな影響を与えることがあります。</p>
-        <p>それらに対応することで、<strong>信頼・尊重・長期的な協力</strong>を築けます。</p>
-
+        <p>小さな誤解でも大きな影響を与えます。</p>
         <h2>研修目的</h2>
-        <p>日本を理解し、信頼を構築し、成功を目指しましょう。</p>
-
-        <h3>研修後にできること：</h3>
         <ul>
-          <li>日本の価値観や行動を理解する</li>
-          <li>文化を意識したコミュニケーションを行う</li>
-          <li>強固で長期的な関係を築く</li>
-          <li>誤解を未然に防ぐ</li>
+          <li>価値観と行動を理解</li>
+          <li>配慮あるコミュニケーション</li>
+          <li>長期的な関係構築</li>
+          <li>誤解の予防</li>
         </ul>
-
-        <h3>追加の知見：</h3>
+        <h2>追加の知見</h2>
         <ul>
-          <li>日本のエチケットを自在に活用</li>
-          <li>長期的思考を理解</li>
-          <li>効果的かつ敬意を払った会議運営</li>
-          <li>異文化理解を競争優位に活かす</li>
+          <li>日本のエチケット適用</li>
+          <li>長期的思考の理解</li>
+          <li>敬意ある会議運営</li>
+          <li>競争上の優位性獲得</li>
         </ul>
       </div>
 
       <div class="contact-links">
-        <a id="emailLink" href="mailto:carolina@hinter-den-bergen.de">E-Mail schreiben</a>
-        <a id="linkedinLink" href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
+        <a href="mailto:carolina@hinter-den-bergen.de">E-Mail schreiben</a>
+        <a href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
       </div>
 
       <footer>
@@ -297,33 +264,18 @@
   </div>
 
   <script>
-    const linkLabels = {
-      german:  ['E-Mail schreiben','LinkedIn ansehen'],
-      english: ['Send e-mail','View LinkedIn'],
-      japanese:['メールを送信','LinkedInを見る']
-    };
-
     function switchLang(lang) {
-      // Inhalte
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('lang-' + lang).classList.add('active');
-      // Buttons
       document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
-      document.getElementById('btn-' + lang).classList.add('active');
-      // Kontakt-Links
-      document.getElementById('emailLink').textContent    = linkLabels[lang][0];
-      document.getElementById('linkedinLink').textContent = linkLabels[lang][1];
-      // speichern
+      document.querySelectorAll('.language-switch button')[{german:0,english:1,japanese:2}[lang]].classList.add('active');
       localStorage.setItem('preferredLang', lang);
     }
-
     document.addEventListener('DOMContentLoaded', () => {
-      // gespeicherte Sprache oder 'german'
       const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
-      // aktive Seite markieren
       document.querySelectorAll('nav a').forEach(a => {
-        if (a.href === window.location.href) a.classList.add('active');
+        if (a.href === location.href) a.classList.add('active');
       });
     });
   </script>

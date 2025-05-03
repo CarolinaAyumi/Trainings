@@ -28,7 +28,7 @@
     /* HEADER */
     header {
       background: white;
-      padding: 1rem 1.5rem;
+      padding: 1.25rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -38,112 +38,104 @@
     header h1 {
       font-size: var(--h1);
       color: var(--primary);
+      font-weight:700;
     }
     .language-switch {
       display: flex;
-      gap: 0.5rem;
     }
     .language-switch button {
-      padding: 8px 14px;
-      border: 2px solid var(--primary);
-      border-radius: 20px;
-      background: white;
-      color: var(--primary);
-      font-size: var(--text-base);
-      cursor: pointer;
-      transition: 0.3s;
+      margin-left:10px;
+      padding:8px 14px;
+      border:none;
+      border-radius:20px;
+      background:white;
+      color:var(--primary);
+      border:2px solid var(--primary);
+      font-size:var(--text-base);
+      cursor:pointer;
+      transition:0.3s;
     }
-    .language-switch button.active,
-    .language-switch button:hover {
-      background: var(--primary);
-      color: white;
+    .language-switch button:hover,
+    .language-switch button.active {
+      background:var(--primary);
+      color:white;
     }
 
-    /* LAYOUT mit immer sichtbarer Nav */
+    /* GRID LAYOUT */
     .layout {
-      display: grid;
+      display:grid;
       grid-template-columns: 250px 1fr;
-      max-width: 1200px;
-      margin: 2rem auto;
-      gap: 2rem;
-      padding: 0 1rem;
+      max-width:1200px;
+      margin:2rem auto;
+      gap:2rem;
+      padding:0 1rem;
     }
 
-    /* NAVIGATION – immer sichtbar */
+    /* NAVIGATION */
     nav {
-      background: white;
-      padding: 2rem 1.5rem;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background:white;
+      padding:2rem 1.5rem;
+      border-radius:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
     }
-    nav ul { list-style: none; }
+    nav ul { list-style:none; padding-left:0; }
     nav a {
-      display: block;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0.75rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      border-radius: 8px;
-      transition: 0.3s;
+      display:block;
+      padding:.75rem 1rem;
+      margin-bottom:.75rem;
+      color:var(--primary);
+      text-decoration:none;
+      font-size:var(--text-base);
+      font-weight:500;
+      border-radius:8px;
+      transition:0.3s;
     }
-    nav a.active,
-    nav a:hover {
-      background: var(--highlight);
-      font-weight: 600;
-    }
+    nav a:hover { background:var(--accent); font-weight:600; }
+    nav a.active { background:var(--highlight); font-weight:600; }
 
     /* MAIN */
     main {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      position: relative;
-      min-height: 70vh;
+      background:white;
+      border-radius:16px;
+      padding:2rem;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+      position:relative;
+      min-height:70vh;
     }
     main h1 {
-      font-size: var(--h1);
-      color: var(--primary);
-      margin-bottom: 1rem;
+      font-size:var(--h1);
+      color:var(--primary);
+      margin-bottom:1rem;
     }
-    main p { margin-bottom: 1.25rem; }
+    main p { margin-bottom:1.25rem; }
 
     /* Sprachblöcke */
-    .lang-content { display: none; }
-    .lang-content.active { display: block; }
+    .lang-content { display:none; }
+    .lang-content.active { display:block; }
 
     /* FOOTER */
     footer {
-      text-align: center;
-      font-size: 0.85rem;
-      margin-top: 3rem;
-      color: var(--primary);
+      text-align:center;
+      font-size:.85rem;
+      margin-top:3rem;
+      color:var(--primary);
     }
     footer a {
-      color: var(--primary);
-      text-decoration: none;
-      margin: 0 0.5rem;
+      color:var(--primary);
+      text-decoration:none;
+      margin:0 .5rem;
     }
-    footer a:hover { color: #0F2A57; }
+    footer a:hover { color:#0F2A57; }
 
-    /* MOBILE – Navigation bleibt sichtbar */
-    @media (max-width: 768px) {
-      .layout {
-        grid-template-columns: 250px 1fr;
-      }
-      nav {
-        margin-right: 1rem;
-      }
+    /* RESPONSIVE – wie auf index.html */
+    @media (max-width:768px) {
+      .layout { grid-template-columns:1fr; }
+      nav { text-align:center; }
       nav a {
+        margin:.5rem auto;
         width: fit-content;
-        margin: 0.5rem auto;
       }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
+      header h1 { font-size:1.5rem; }
     }
   </style>
 </head>
@@ -152,9 +144,9 @@
   <header>
     <h1>Impressum</h1>
     <div class="language-switch">
-      <button id="btn-german" onclick="switchLang('german')">Deutsch</button>
-      <button id="btn-english" onclick="switchLang('english')">English</button>
-      <button id="btn-japanese" onclick="switchLang('japanese')">日本語</button>
+      <button onclick="switchLang('german')" class="active">Deutsch</button>
+      <button onclick="switchLang('english')">English</button>
+      <button onclick="switchLang('japanese')">日本語</button>
     </div>
   </header>
 
@@ -162,8 +154,8 @@
     <nav>
       <ul>
         <li><a href="index.html">Landing Page</a></li>
-        <li><a href="seite1.html">Training: Intercultural Competence</a></li>
-        <li><a href="Consulting.html">Training: Basic Consulting</a></li>
+        <li><a href="seite1.html">Intercultural Competence</a></li>
+        <li><a href="Consulting.html">Basic Consulting</a></li>
         <li><a href="Datenschutzseite.html">Datenschutzerklärung</a></li>
         <li><a href="Impressum.html" class="active">Impressum</a></li>
       </ul>
@@ -219,7 +211,7 @@
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('lang-' + lang).classList.add('active');
       document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
-      document.getElementById('btn-' + lang).classList.add('active');
+      document.querySelectorAll('.language-switch button')[{german:0,english:1,japanese:2}[lang]].classList.add('active');
       localStorage.setItem('preferredLang', lang);
     }
 
@@ -227,7 +219,7 @@
       const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
       document.querySelectorAll('nav a').forEach(a => {
-        if (a.href === window.location.href) a.classList.add('active');
+        if (a.href === location.href) a.classList.add('active');
       });
     });
   </script>
