@@ -41,12 +41,6 @@
       color: var(--primary);
       margin: 0;
     }
-    .menu-icon {
-      display: none;
-      font-size: 1.5rem;
-      color: var(--primary);
-      cursor: pointer;
-    }
     .language-switch {
       display: flex;
       gap: 0.5rem;
@@ -78,13 +72,12 @@
       position: relative;
     }
 
-    /* NAVIGATION (sichtbar) */
+    /* NAVIGATION – immer sichtbar */
     nav {
       background: white;
       padding: 2rem 1.5rem;
       border-radius: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease-in-out;
     }
     nav ul { list-style: none; }
     nav a {
@@ -166,21 +159,24 @@
     }
     footer a:hover { color: #0F2A57; }
 
-    /* MOBILE */
+    /* RESPONSIVE – keine Ausblendung der Navigation */
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap:1rem; }
-      .menu-icon { display: block; }
-      .layout { grid-template-columns: 1fr; }
-      nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        transform: translateY(-200%);
-        border-radius: 0;
+      .layout {
+        grid-template-columns: 1fr; /* Nav wandert über den Inhalt, bleibt aber sichtbar */
       }
-      nav.open { transform: translateY(0); }
-      nav a { width: fit-content; margin: 0.5rem auto; }
+      nav {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      nav a {
+        width: fit-content;
+        margin: 0.5rem auto;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
       .bottom-right-image {
         width: 180px;
         bottom: 0.5rem;
@@ -193,7 +189,6 @@
 
   <header>
     <h1>Carolina Ayumi – Intercultural Trainings</h1>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     <div class="language-switch">
       <button id="btn-german" onclick="switchLang('german')">Deutsch</button>
       <button id="btn-english" onclick="switchLang('english')">English</button>
@@ -202,7 +197,7 @@
   </header>
 
   <div class="layout">
-    <nav id="mainNav">
+    <nav>
       <ul>
         <li><a href="index.html" class="active">Landing Page</a></li>
         <li><a href="seite1.html">Training: Intercultural Competence</a></li>
@@ -218,26 +213,26 @@
         <h2>Über mich</h2>
         <p>Konnichiwa, mein Name ist Carolina Ayumi 亜由美.</p>
         <p>Ich bin spezialisiert auf interkulturelle Kompetenz und Beratung, mit einem Fokus auf Lean-Six-Sigma-Methoden.</p>
-        <p>Durch meine deutsch-japanische Herkunft bringe ich wertvolle Einblicke in kulturelle Feinheiten mit.</p>
-        <p>Kontaktieren Sie mich gerne unter <strong>XXX</strong>.</p>
+        <p>Meine deutsch-japanische Herkunft bringt wertvolle kulturelle Einblicke.</p>
+        <p>Kontakt: <strong>XXX</strong></p>
       </div>
 
       <!-- English -->
       <div class="lang-content" id="lang-english">
         <h2>About Me</h2>
         <p>Hello, my name is Carolina Ayumi 亜由美.</p>
-        <p>I specialize in intercultural competence and consulting, with a focus on Lean Six Sigma.</p>
-        <p>My German–Japanese background gives me unique cultural insights.</p>
-        <p>Feel free to reach out at <strong>XXX</strong>.</p>
+        <p>I specialize in intercultural competence and consulting, focusing on Lean Six Sigma.</p>
+        <p>My German–Japanese background provides unique cultural insights.</p>
+        <p>Contact: <strong>XXX</strong></p>
       </div>
 
       <!-- 日本語 -->
       <div class="lang-content" id="lang-japanese">
         <h2>自己紹介</h2>
-        <p>はじめまして、カロリーナ・亜由美と申します。</p>
-        <p>異文化理解やリーンシックスシグマを専門としています。</p>
-        <p>ドイツと日本のバックグラウンドから文化的な洞察を提供します。</p>
-        <p>ご連絡は<strong>XXX</strong>まで。</p>
+        <p>はじめまして、カロリーナ・亜由美です。</p>
+        <p>異文化理解とリーンシックスシグマを専門としています。</p>
+        <p>ドイツ・日本のバックグラウンドで文化的洞察を提供します。</p>
+        <p>連絡先：<strong>XXX</strong></p>
       </div>
 
       <div class="contact-links">
@@ -257,36 +252,31 @@
   </div>
 
   <script>
-    // Mobile-Hamburger
-    function toggleMenu() {
-      document.getElementById('mainNav').classList.toggle('open');
-    }
+    const linkLabels = {
+      german:  ['E-Mail schreiben','LinkedIn ansehen'],
+      english: ['Send e-mail','View LinkedIn'],
+      japanese:['メールを送信','LinkedInを見る']
+    };
 
-    // Sprachauswahl mit LocalStorage
     function switchLang(lang) {
-      // Content
+      // Inhalt
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('lang-' + lang).classList.add('active');
       // Buttons
       document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
       document.getElementById('btn-' + lang).classList.add('active');
-      // Links
-      const labels = {
-        german:  ['E-Mail schreiben','LinkedIn ansehen'],
-        english: ['Send e-mail','View LinkedIn'],
-        japanese:['メールを送信','LinkedInを見る']
-      };
-      document.getElementById('emailLink').textContent    = labels[lang][0];
-      document.getElementById('linkedinLink').textContent = labels[lang][1];
-      // Save
+      // Kontakt-Links
+      document.getElementById('emailLink').textContent    = linkLabels[lang][0];
+      document.getElementById('linkedinLink').textContent = linkLabels[lang][1];
+      // speichern
       localStorage.setItem('preferredLang', lang);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) gespeicherte Sprache oder deutsch
+      // 1) gespeicherte Sprache oder 'german'
       const lang = localStorage.getItem('preferredLang') || 'german';
       switchLang(lang);
-      // 2) aktuelle Seite markieren
+      // 2) aktive Seite markieren
       const url = window.location.href;
       document.querySelectorAll('nav a').forEach(a => {
         if (a.href === url) a.classList.add('active');
