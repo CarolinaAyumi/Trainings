@@ -211,7 +211,7 @@
         <p>Durch meine deutsch-japanische Herkunft bringe ich wertvolle Einblicke in kulturelle Feinheiten mit, die oft zu Missverständnissen führen können.</p>
         <p>Um diesen vorzubeugen, biete ich gezielte Schulungen zur japanischen Business-Etikette und Methodenkompetenz an.</p>
         <p>Meine Trainings sind flexibel, interaktiv und praxisnah gestaltet.</p>
-        <p>Kontaktieren Sie mich gerne unter <strong>XXX</strong>.</p>
+        <p>Kontaktieren Sie mich gerne via Email.</p>
       </section>
 
       <!-- English -->
@@ -221,7 +221,7 @@
         <p>I specialize in intercultural competence and consulting, with a focus on Lean Six Sigma.</p>
         <p>Growing up in both German and Japanese cultures allows me to bridge gaps in international business.</p>
         <p>I provide training tailored to expats and teams working with Japan, supported by my Lean Six Sigma Black Belt certification.</p>
-        <p>Feel free to reach out at <strong>XXX</strong>.</p>
+        <p>Feel free to reach out via Email.</p>
       </section>
 
       <!-- 日本語 -->
@@ -230,14 +230,15 @@
         <p>はじめまして、カロリーナ・亜由美と申します。</p>
         <p>異文化理解やリーンシックスシグマを中心とした研修を提供しています。</p>
         <p>日本のビジネスマナーに関する研修や、企業向けのコンサルティングを行っております。</p>
-        <p>ご興味があれば、<strong>XXX</strong>までご連絡ください。</p>
+        <p>ご興味があれば、是非是非ださい。</p>
       </section>
 
+      
       <div class="contact-links">
-        <a href="mailto:carolina@hinter-den-bergen.de">E-Mail schreiben</a>
-        <a href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
+        <a id="emailButton" href="mailto:ayucchi95@gmail.de">E-Mail schreiben</a>
+        <a id="linkedinButton" href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
       </div>
-
+      
       <footer>
         <p>
           <a href="Impressum.html">Impressum</a> |
@@ -251,20 +252,27 @@
 
   <script>
     function switchLang(lang) {
-      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-      document.getElementById(lang + 'Text').classList.remove('hidden');
-      document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
-      const idx = { german:0, english:1, japanese:2 }[lang];
-      document.querySelectorAll('.language-switch button')[idx].classList.add('active');
-      localStorage.setItem('preferredLang', lang);
-    }
-    document.querySelectorAll('nav a').forEach(a => {
-      if (a.href === location.href) a.classList.add('active');
-    });
-    document.addEventListener('DOMContentLoaded', () => {
-      const lang = localStorage.getItem('preferredLang') || 'german';
-      switchLang(lang);
-    });
+  document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+  document.getElementById(lang + 'Text').classList.remove('hidden');
+  document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
+  const idx = { german:0, english:1, japanese:2 }[lang];
+  document.querySelectorAll('.language-switch button')[idx].classList.add('active');
+  localStorage.setItem('preferredLang', lang);
+
+  // Buttons anpassen
+  const emailBtn = document.getElementById('emailButton');
+  const linkedinBtn = document.getElementById('linkedinButton');
+  if(lang === 'german') {
+    emailBtn.textContent = "E-Mail schreiben";
+    linkedinBtn.textContent = "LinkedIn ansehen";
+  } else if(lang === 'english') {
+    emailBtn.textContent = "Write an Email";
+    linkedinBtn.textContent = "LinkedIn";
+  } else if(lang === 'japanese') {
+    emailBtn.textContent = "メールを書く";
+    linkedinBtn.textContent = "LinkedIn";
+  }
+};
   </script>
 </body>
 </html>
