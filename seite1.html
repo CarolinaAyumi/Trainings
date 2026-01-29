@@ -171,6 +171,7 @@
     </div>
   </header>
 
+  
   <div class="layout">
     <nav>
       <ul>
@@ -232,6 +233,11 @@
         </ul>
       </section>
 
+<div class="contact-links">
+  <a href="mailto:ayucchi95@gmail.com">E-Mail schreiben</a>
+  <a href="https://www.linkedin.com/in/carolina-ayumi-亜由美-624786203" target="_blank">LinkedIn ansehen</a>
+</div>
+
       <footer>
         <p>
           <a href="Impressum.html">Impressum</a> |
@@ -245,20 +251,27 @@
 
   <script>
     function switchLang(lang) {
-      document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-      document.getElementById(lang + 'Text').classList.remove('hidden');
-      document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
-      const idx = { german:0, english:1, japanese:2 }[lang];
-      document.querySelectorAll('.language-switch button')[idx].classList.add('active');
-      localStorage.setItem('preferredLang', lang);
-    }
-    document.querySelectorAll('nav a').forEach(a => {
-      if (a.href === location.href) a.classList.add('active');
-    });
-    document.addEventListener('DOMContentLoaded', () => {
-      const lang = localStorage.getItem('preferredLang') || 'german';
-      switchLang(lang);
-    });
+  document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+  document.getElementById(lang + 'Text').classList.remove('hidden');
+  document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
+  const idx = { german:0, english:1, japanese:2 }[lang];
+  document.querySelectorAll('.language-switch button')[idx].classList.add('active');
+  localStorage.setItem('preferredLang', lang);
+
+  // Buttons anpassen
+  const emailBtn = document.getElementById('emailButton');
+const linkedinBtn = document.getElementById('linkedinButton');
+if(lang === 'german') {
+  emailBtn.textContent = "E-Mail schreiben";
+  linkedinBtn.textContent = "LinkedIn ansehen";
+} else if(lang === 'english') {
+  emailBtn.textContent = "Write an Email";
+  linkedinBtn.textContent = "LinkedIn";
+} else if(lang === 'japanese') {
+  emailBtn.textContent = "メールを書く";
+  linkedinBtn.textContent = "LinkedIn";
+  }
+};
   </script>
 </body>
 </html>
